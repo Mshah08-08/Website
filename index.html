@@ -36,26 +36,26 @@
         #fractal-bg {
             background: #00000a; /* Deep dark base */
             background-image: 
-                /* Layer 1: Main Swirls - FURTHER reduced opacity and adjusted gradient stops for subtlety */
+                /* Layer 1: Main Swirls - INCREASED brightness and opacity */
                 repeating-radial-gradient(circle at center, 
-                    rgba(117, 121, 255, 0.15) 0%, /* Opacity reduced to 0.15 (was 0.25) */
-                    rgba(76, 81, 191, 0.25) 1.8%,   /* Opacity reduced to 0.25 (was 0.4) */
+                    rgba(117, 121, 255, 0.35) 0%, /* Opacity INCREASED to 0.35 for more visibility */
+                    rgba(76, 81, 191, 0.50) 1.8%,   /* Opacity INCREASED to 0.50 for brighter swirls */
                     transparent 2.5%, /* Increased stop for softer transition */
                     transparent 15% 
                 ),
-                /* Layer 2: Top-right offset swirls - FURTHER reduced opacity and increased spread */
+                /* Layer 2: Top-right offset swirls - INCREASED brightness and opacity */
                 repeating-radial-gradient(circle at 100% 0%, 
-                    rgba(76, 81, 191, 0.20) 0%, /* Opacity reduced to 0.20 (was 0.4) */
+                    rgba(117, 121, 255, 0.45) 0%, /* Opacity INCREASED to 0.45 for more prominence */
                     transparent 15% /* Increased gradient spread (was 12%) */
                 ),
-                /* Large, subtle, swirling pattern for flow (Right Side) - FURTHER reduced opacity and increased spread */
+                /* Large, subtle, swirling pattern for flow (Right Side) - INCREASED brightness and opacity */
                 radial-gradient(ellipse at 80% 60%, 
-                    rgba(76, 81, 191, 0.35) 0%, /* Opacity reduced to 0.35 (was 0.5) */
+                    rgba(117, 121, 255, 0.55) 0%, /* Opacity INCREASED to 0.55 and using brighter blue */
                     transparent 40% /* Increased gradient spread (was 30%) */
                 ),
-                /* Large, subtle, swirling pattern for flow (Left Side) - FURTHER reduced opacity and increased spread */
+                /* Large, subtle, swirling pattern for flow (Left Side) - INCREASED brightness and opacity */
                 radial-gradient(circle at 20% 40%, 
-                    rgba(76, 81, 191, 0.15) 0%, /* Opacity reduced to 0.15 (was 0.3) */
+                    rgba(117, 121, 255, 0.35) 0%, /* Opacity INCREASED to 0.35 and using brighter blue */
                     transparent 40% /* Increased gradient spread (was 30%) */
                 ),
                 /* Deepest Base Layer */
@@ -77,7 +77,7 @@
 
         .card-image {
             width: 100%;
-            height: 280px; /* INCREASED from 200px - makes images taller */
+            height: 350px; /* INCREASED from 280px - makes images even larger */
             object-fit: cover;
             border-radius: 8px; /* INCREASED from 6px for better look */
         }
