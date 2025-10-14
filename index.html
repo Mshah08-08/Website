@@ -73,17 +73,17 @@
 
         /* ---------------------------------------------------- */
         /* 2. LAYOUT & SCROLLING */
-        /* Increased padding-top to push all main content further down from the fixed header */
+        /* Increased padding-top significantly to push content much further down from the fixed header */
         /* ---------------------------------------------------- */
         .content-wrapper {
-            /* Adjusted padding-top significantly higher to push content down further (Mobile) */
-            padding-top: 220px; 
+            /* Adjusted padding-top to 300px for mobile (was 220px) */
+            padding-top: 300px; 
             padding-bottom: 40px;
         }
         @media (min-width: 1024px) {
             .content-wrapper {
-                /* Adjusted padding-top significantly higher to push content down further (Desktop) */
-                padding-top: 160px;
+                /* Adjusted padding-top to 240px for desktop (was 160px) */
+                padding-top: 240px;
             }
         }
         .card-image {
@@ -194,6 +194,7 @@
     <main class="content-wrapper p-6 lg:p-12 max-w-7xl mx-auto">
         
         <!-- 1. HOMEPAGE VIEW -->
+        <!-- Note: Homepage also benefits from the increased padding in .content-wrapper, pushing its centered content lower. -->
         <section id="homepage-view" class="min-h-screen pt-24 pb-12 flex flex-col justify-center items-center text-center">
             <!-- UPDATED OPACITY HERE: bg-black/20 -->
             <div class="w-full max-w-4xl p-10 bg-black/20 backdrop-blur-md rounded-xl shadow-2xl border border-white/10 content-filter">
