@@ -77,7 +77,7 @@
 
         .card-image {
             width: 100%;
-            height: 240px; 
+            height: 200px; /* Slight reduction for card height */
             object-fit: cover;
             border-radius: 6px;
         }
@@ -138,7 +138,7 @@
             background-color: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(76, 81, 191, 0.5);
             color: #e5e7eb;
-            padding: 12px;
+            padding: 10px; /* Reduced padding */
             border-radius: 8px;
             width: 100%;
             transition: border-color 0.3s, box-shadow 0.3s;
@@ -160,38 +160,39 @@
 
     <!-- ---------------------------------------------------- -->
     <!-- FIXED HEADER & NAVIGATION (The Collar) -->
+    <!-- Reduced padding here -->
     <!-- ---------------------------------------------------- -->
     <div class="fixed top-0 left-0 right-0 z-50 bg-black/60 backdrop-blur-sm shadow-2xl shadow-black">
         
         <!-- TOP ROW: Profile and Name (Clickable Home Link) -->
-        <header class="flex justify-between items-center p-4 lg:p-6 border-b border-white/10">
+        <header class="flex justify-between items-center p-3 lg:p-4 border-b border-white/10">
             <!-- Link: Clicking the name/image goes to home -->
-            <a href="#" onclick="showSection('home'); return false;" class="flex items-center space-x-4 group cursor-pointer">
+            <a href="#" onclick="showSection('home'); return false;" class="flex items-center space-x-3 group cursor-pointer">
                 <!-- Profile Picture Placeholder -->
                 <img src="images/profile.jpg" alt="Manan Shah Profile" 
-                     class="w-12 h-12 rounded-full border-2 border-brand-blue object-cover transition-colors duration-300 group-hover:border-brand-accent">
+                     class="w-10 h-10 rounded-full border-2 border-brand-blue object-cover transition-colors duration-300 group-hover:border-brand-accent">
                 
                 <h1 class="text-xl lg:text-2xl font-bold tracking-wider text-white transition-colors duration-300 group-hover:text-brand-accent">MANAN SHAH</h1>
             </a>
             
             <!-- Navigation Links -->
-            <nav class="space-x-4 text-sm font-medium hidden sm:flex">
+            <nav class="space-x-3 text-sm font-medium hidden sm:flex">
                 <a href="https://github.com/mshah8" target="_blank" rel="noopener noreferrer" class="text-text-light hover:text-brand-accent transition duration-300">GitHub</a>
                 <a href="#" onclick="showSection('contact'); return false;" class="text-text-light hover:text-brand-accent transition duration-300">Contact</a>
             </nav>
         </header>
 
         <!-- BOTTOM ROW: Brain Buttons (Centered) -->
-        <nav class="p-3 flex justify-center space-x-6">
+        <nav class="p-2 flex justify-center space-x-4">
             <!-- Button Background uses bg-black/90 to block background swirls inside the button area -->
             <button id="left-button" onclick="showSection('left')" 
-                    class="px-6 py-2 rounded-full font-semibold text-sm tracking-wider transition duration-300 
+                    class="px-5 py-2 rounded-full font-semibold text-sm tracking-wider transition duration-300 
                            border border-brand-accent text-brand-accent bg-black/90 hover:bg-brand-accent hover:text-white hover:shadow-lg hover:shadow-brand-accent/30">
                 L E F T &nbsp; B R A I N
             </button>
             <!-- Button Background uses bg-black/90 to block background swirls inside the button area -->
             <button id="right-button" onclick="showSection('right')" 
-                    class="px-6 py-2 rounded-full font-semibold text-sm tracking-wider transition duration-300 
+                    class="px-5 py-2 rounded-full font-semibold text-sm tracking-wider transition duration-300 
                            border border-brand-accent text-brand-accent bg-black/90 hover:bg-brand-accent hover:text-white hover:shadow-lg hover:shadow-brand-accent/30">
                 R I G H T &nbsp; B R A I N
             </button>
@@ -200,29 +201,30 @@
 
     <!-- ---------------------------------------------------- -->
     <!-- MAIN CONTENT VIEWS -->
+    <!-- Reduced padding here -->
     <!-- ---------------------------------------------------- -->
-    <main class="p-6 lg:p-12 max-w-7xl mx-auto">
+    <main class="p-4 lg:p-6 max-w-7xl mx-auto">
         
-        <!-- 1. HOMEPAGE VIEW (Minimal vertical padding, relies on flex centering) -->
-        <section id="homepage-view" class="min-h-screen pt-24 pb-12 flex flex-col justify-center items-center text-center">
-            <div class="w-full max-w-4xl p-10 bg-black/20 backdrop-blur-md rounded-xl shadow-2xl border border-white/10 content-filter">
+        <!-- 1. HOMEPAGE VIEW (Reduced vertical padding) -->
+        <section id="homepage-view" class="min-h-screen pt-16 pb-8 flex flex-col justify-center items-center text-center">
+            <div class="w-full max-w-3xl p-6 bg-black/20 backdrop-blur-md rounded-xl shadow-2xl border border-white/10 content-filter">
                 
                 <!-- About Me Content -->
-                <h3 class="text-3xl font-extrabold text-brand-blue mb-4 tracking-tight">
+                <h3 class="text-2xl font-extrabold text-brand-blue mb-3 tracking-tight">
                     Hello! I'm Manan.
                 </h3>
-                <p class="text-lg text-gray-300 mb-6">
+                <p class="text-base text-gray-300 mb-4">
                     I'm a builder and a thinker who loves solving problems, whether it's optimizing a complex system with clean code or designing something entirely new. I'm passionate about **aerospace engineering**, **high-performance computing**, and the **creative design process**. This site is a showcase of both sides of my brain.
                 </p>
                 
-                <hr class="border-white/10 my-6">
+                <hr class="border-white/10 my-4">
 
                 <!-- Existing Welcome Content -->
-                <p class="text-lg font-serif italic text-brand-accent mb-4">Welcome to my Dual Portfolio.</p>
-                <h2 class="text-5xl lg:text-7xl font-extrabold text-white mb-6 tracking-tight">
+                <p class="text-lg font-serif italic text-brand-accent mb-3">Welcome to my Dual Portfolio.</p>
+                <h2 class="text-5xl lg:text-7xl font-extrabold text-white mb-4 tracking-tight">
                     Logic Meets Creativity
                 </h2>
-                <p class="text-xl text-gray-300 mb-8">
+                <p class="text-lg text-gray-300 mb-6">
                     I believe the best work happens at the intersection of rigorous **analytical thinking** and **unbound creative expression**.
                 </p>
                 <p class="text-sm text-gray-400">
@@ -231,23 +233,23 @@
             </div>
         </section>
 
-        <!-- 2. LEFT BRAIN VIEW (Projects) - With robust pt-64 for fixed header clearance -->
-        <section id="left-brain-view" class="hidden pt-64">
-            <div class="px-6 lg:px-10 py-10 lg:py-16 bg-black/20 backdrop-blur-md rounded-xl border border-white/10 content-filter">
+        <!-- 2. LEFT BRAIN VIEW (Projects) - Reduced Header Clearance and padding -->
+        <section id="left-brain-view" class="hidden pt-36">
+            <div class="px-4 lg:px-6 py-4 lg:py-6 bg-black/20 backdrop-blur-md rounded-xl border border-white/10 content-filter">
                 
-                <!-- Projects Grid (3 per row) -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Projects Grid (Reduced gap) -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     
-                    <!-- Project Card 1: PC Build - Opens a modal -->
+                    <!-- Project Card 1: PC Build - Reduced Card Padding -->
                     <a href="#" onclick="openProjectDetail(
                         'PC Build & Optimization', 
                         '<p>This project involved designing, sourcing, and meticulously assembling a high-end personal computer system. Key work included BIOS tuning, aggressive thermal management, and deep operating system optimization to ensure maximum performance and stability for demanding applications like CAD and simulation.</p><p>It\'s a demonstration of practical hardware knowledge and systematic performance tuning.</p>'
                     ); return false;" class="project-link-wrapper">
-                        <article class="bg-black/20 backdrop-blur-sm rounded-lg shadow-xl border border-white/10 p-4 transition duration-300 hover:shadow-brand-blue/50 cursor-pointer h-full">
-                            <img class="card-image mb-4" src="images/pc-build-thumb.jpg" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=PC+Build'" alt="PC Build Screenshot">
+                        <article class="bg-black/20 backdrop-blur-sm rounded-lg shadow-xl border border-white/10 p-3 transition duration-300 hover:shadow-brand-blue/50 cursor-pointer h-full">
+                            <img class="card-image mb-3" src="images/pc-build-thumb.jpg" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=PC+Build'" alt="PC Build Screenshot">
                             <div class="p-1">
                                 <h3 class="text-xl font-semibold text-white">PC Build & Optimization</h3>
-                                <div class="mt-3 space-x-2">
+                                <div class="mt-2 space-x-2">
                                     <span class="inline-block bg-brand-blue text-white text-xs font-medium px-2 py-0.5 rounded-full">Hardware</span>
                                     <span class="inline-block bg-brand-blue text-white text-xs font-medium px-2 py-0.5 rounded-full">OS Tuning</span>
                                 </div>
@@ -255,16 +257,16 @@
                         </article>
                     </a>
 
-                    <!-- Project Card 2: Rocket Mount - Opens a modal -->
+                    <!-- Project Card 2: Rocket Mount -->
                     <a href="#" onclick="openProjectDetail(
                         'Rocket Mount Design (CAD)', 
                         '<p>A structural design project focused on creating a lightweight yet robust engine mount for a hybrid rocket. This involved finite element analysis (FEA) in SolidWorks to test stress tolerance under various load conditions, optimizing the geometry for 3D printing in composite materials.</p><p>It showcases skills in CAD modeling, simulation, and material science application.</p>'
                     ); return false;" class="project-link-wrapper">
-                        <article class="bg-black/20 backdrop-blur-sm rounded-lg shadow-xl border border-white/10 p-4 transition duration-300 hover:shadow-brand-blue/50 cursor-pointer h-full">
-                            <img class="card-image mb-4" src="images/rocket-mount-thumb.jpg" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=Rocket+Mount'" alt="Rocket Mount CAD">
+                        <article class="bg-black/20 backdrop-blur-sm rounded-lg shadow-xl border border-white/10 p-3 transition duration-300 hover:shadow-brand-blue/50 cursor-pointer h-full">
+                            <img class="card-image mb-3" src="images/rocket-mount-thumb.jpg" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=Rocket+Mount'" alt="Rocket Mount CAD">
                             <div class="p-1">
                                 <h3 class="text-xl font-semibold text-white">Rocket Mount Design (CAD)</h3>
-                                <div class="mt-3 space-x-2">
+                                <div class="mt-2 space-x-2">
                                     <span class="inline-block bg-brand-blue text-white text-xs font-medium px-2 py-0.5 rounded-full">SolidWorks</span>
                                     <span class="inline-block bg-brand-blue text-white text-xs font-medium px-2 py-0.5 rounded-full">3D Printing</span>
                                 </div>
@@ -272,16 +274,16 @@
                         </article>
                     </a>
                     
-                    <!-- Project Card 3: TVC Rocket - Opens a modal -->
+                    <!-- Project Card 3: TVC Rocket -->
                     <a href="#" onclick="openProjectDetail(
                         'TVC Rocket Stabilization', 
                         '<p>Developed the guidance and control system for a model rocket using Thrust Vector Control (TVC). The core achievement was implementing a Proportional-Integral-Derivative (PID) control loop on an Arduino platform to maintain stable flight despite disturbances. This required precise sensor fusion and real-time computation.</p><p>A strong example of embedded systems programming and control theory.</p>'
                     ); return false;" class="project-link-wrapper">
-                        <article class="bg-black/20 backdrop-blur-sm rounded-lg shadow-xl border border-white/10 p-4 transition duration-300 hover:shadow-brand-blue/50 cursor-pointer h-full">
-                            <img class="card-image mb-4" src="images/tvc-rocket-thumb.jpg" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=TVC+Rocket'" alt="TVC Rocket Control">
+                        <article class="bg-black/20 backdrop-blur-sm rounded-lg shadow-xl border border-white/10 p-3 transition duration-300 hover:shadow-brand-blue/50 cursor-pointer h-full">
+                            <img class="card-image mb-3" src="images/tvc-rocket-thumb.jpg" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=TVC+Rocket'" alt="TVC Rocket Control">
                             <div class="p-1">
                                 <h3 class="text-xl font-semibold text-white">TVC Rocket Stabilization</h3>
-                                <div class="mt-3 space-x-2">
+                                <div class="mt-2 space-x-2">
                                     <span class="inline-block bg-brand-blue text-white text-xs font-medium px-2 py-0.5 rounded-full">Arduino</span>
                                     <span class="inline-block bg-brand-blue text-white text-xs font-medium px-2 py-0.5 rounded-full">PID Control</span>
                                 </div>
@@ -289,16 +291,16 @@
                         </article>
                     </a>
 
-                    <!-- Project Card 4: Placeholder 4 (Existing) - Opens a modal -->
+                    <!-- Project Card 4: Placeholder 4 -->
                     <a href="#" onclick="openProjectDetail(
                         'Machine Learning Model', 
                         '<p>A deep learning model developed in Python using TensorFlow to classify astronomical images. I focused on data preprocessing pipelines and optimizing the neural network architecture for speed on limited hardware. The resulting model achieved high accuracy on a custom dataset.</p><p>Skills demonstrated include data science, Python programming, and model deployment.</p>'
                     ); return false;" class="project-link-wrapper">
-                        <article class="bg-black/20 backdrop-blur-sm rounded-lg shadow-xl border border-white/10 p-4 transition duration-300 hover:shadow-brand-blue/50 cursor-pointer h-full">
-                            <img class="card-image mb-4" src="images/project-thumb-4.jpg" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=Placeholder+AI'" alt="AI Model Screenshot">
+                        <article class="bg-black/20 backdrop-blur-sm rounded-lg shadow-xl border border-white/10 p-3 transition duration-300 hover:shadow-brand-blue/50 cursor-pointer h-full">
+                            <img class="card-image mb-3" src="images/project-thumb-4.jpg" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=Placeholder+AI'" alt="AI Model Screenshot">
                             <div class="p-1">
                                 <h3 class="text-xl font-semibold text-white">Machine Learning Model</h3>
-                                <div class="mt-3 space-x-2">
+                                <div class="mt-2 space-x-2">
                                     <span class="inline-block bg-brand-blue text-white text-xs font-medium px-2 py-0.5 rounded-full">Python</span>
                                     <span class="inline-block bg-brand-blue text-white text-xs font-medium px-2 py-0.5 rounded-full">TensorFlow</span>
                                 </div>
@@ -306,16 +308,16 @@
                         </article>
                     </a>
                     
-                    <!-- Project Card 5: Placeholder 5 (Existing) - Opens a modal -->
+                    <!-- Project Card 5: Placeholder 5 -->
                     <a href="#" onclick="openProjectDetail(
                         'E-commerce Backend', 
                         '<p>Designed and implemented the core backend services for a fictional small e-commerce platform using Django and PostgreSQL. This project covered user authentication, inventory management, and secure order processing. The focus was on scalability and clean API design.</p><p>Demonstrates proficiency in web framework development and database management.</p>'
                     ); return false;" class="project-link-wrapper">
-                        <article class="bg-black/20 backdrop-blur-sm rounded-lg shadow-xl border border-white/10 p-4 transition duration-300 hover:shadow-brand-blue/50 cursor-pointer h-full">
-                            <img class="card-image mb-4" src="images/project-thumb-5.jpg" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=Placeholder+Web'" alt="Web Dev Project">
+                        <article class="bg-black/20 backdrop-blur-sm rounded-lg shadow-xl border border-white/10 p-3 transition duration-300 hover:shadow-brand-blue/50 cursor-pointer h-full">
+                            <img class="card-image mb-3" src="images/project-thumb-5.jpg" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=Placeholder+Web'" alt="Web Dev Project">
                             <div class="p-1">
                                 <h3 class="text-xl font-semibold text-white">E-commerce Backend</h3>
-                                <div class="mt-3 space-x-2">
+                                <div class="mt-2 space-x-2">
                                     <span class="inline-block bg-brand-blue text-white text-xs font-medium px-2 py-0.5 rounded-full">Django</span>
                                     <span class="inline-block bg-brand-blue text-white text-xs font-medium px-2 py-0.5 rounded-full">PostgreSQL</span>
                                 </div>
@@ -323,16 +325,16 @@
                         </article>
                     </a>
                     
-                    <!-- Project Card 6: Placeholder 6 (Existing) - Opens a modal -->
+                    <!-- Project Card 6: Placeholder 6 -->
                     <a href="#" onclick="openProjectDetail(
                         'Simple Game Engine', 
                         '<p>Built a basic 2D game engine prototype in Java to understand graphics rendering pipelines and game loop mechanics. Features included scene management, a basic physics system for collisions, and user input handling.</p><p>This project solidified foundational knowledge in object-oriented programming and software architecture.</p>'
                     ); return false;" class="project-link-wrapper">
-                        <article class="bg-black/20 backdrop-blur-sm rounded-lg shadow-xl border border-white/10 p-4 transition duration-300 hover:shadow-brand-blue/50 cursor-pointer h-full">
-                            <img class="card-image mb-4" src="images/project-thumb-6.jpg" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=Placeholder+Engine'" alt="Game Engine screenshot">
+                        <article class="bg-black/20 backdrop-blur-sm rounded-lg shadow-xl border border-white/10 p-3 transition duration-300 hover:shadow-brand-blue/50 cursor-pointer h-full">
+                            <img class="card-image mb-3" src="images/project-thumb-6.jpg" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=Placeholder+Engine'" alt="Game Engine screenshot">
                             <div class="p-1">
                                 <h3 class="text-xl font-semibold text-white">Simple Game Engine</h3>
-                                <div class="mt-3 space-x-2">
+                                <div class="mt-2 space-x-2">
                                     <span class="inline-block bg-brand-blue text-white text-xs font-medium px-2 py-0.5 rounded-full">Java</span>
                                     <span class="inline-block bg-brand-blue text-white text-xs font-medium px-2 py-0.5 rounded-full">OOP</span>
                                 </div>
@@ -340,16 +342,16 @@
                         </article>
                     </a>
 
-                    <!-- Project Card 7: New Placeholder - Opens a modal -->
+                    <!-- Project Card 7: New Placeholder -->
                     <a href="#" onclick="openProjectDetail(
                         'Template Project 7: Robotics Control', 
                         '<p>This is a placeholder description for Template Project 7. It focuses on the development of a complex multi-axis robotics control algorithm written in C++ for industrial applications. Key concepts involved advanced kinematics and real-time path planning.</p>'
                     ); return false;" class="project-link-wrapper">
-                        <article class="bg-black/20 backdrop-blur-sm rounded-lg shadow-xl border border-white/10 p-4 transition duration-300 hover:shadow-brand-blue/50 cursor-pointer h-full">
-                            <img class="card-image mb-4" src="images/project-thumb-7.jpg" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=Project+7'" alt="Robotics Control Placeholder">
+                        <article class="bg-black/20 backdrop-blur-sm rounded-lg shadow-xl border border-white/10 p-3 transition duration-300 hover:shadow-brand-blue/50 cursor-pointer h-full">
+                            <img class="card-image mb-3" src="images/project-thumb-7.jpg" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=Project+7'" alt="Robotics Control Placeholder">
                             <div class="p-1">
                                 <h3 class="text-xl font-semibold text-white">Template Project 7: Robotics</h3>
-                                <div class="mt-3 space-x-2">
+                                <div class="mt-2 space-x-2">
                                     <span class="inline-block bg-brand-blue text-white text-xs font-medium px-2 py-0.5 rounded-full">C++</span>
                                     <span class="inline-block bg-brand-blue text-white text-xs font-medium px-2 py-0.5 rounded-full">Kinematics</span>
                                 </div>
@@ -357,16 +359,16 @@
                         </article>
                     </a>
 
-                    <!-- Project Card 8: New Placeholder - Opens a modal -->
+                    <!-- Project Card 8: New Placeholder -->
                     <a href="#" onclick="openProjectDetail(
                         'Template Project 8: CFD Analysis', 
                         '<p>This is a placeholder description for Template Project 8. It involved running Computational Fluid Dynamics (CFD) simulations on various airfoil shapes to study lift-to-drag ratios. The goal was to optimize aerodynamic efficiency for a drone wing.</p>'
                     ); return false;" class="project-link-wrapper">
-                        <article class="bg-black/20 backdrop-blur-sm rounded-lg shadow-xl border border-white/10 p-4 transition duration-300 hover:shadow-brand-blue/50 cursor-pointer h-full">
-                            <img class="card-image mb-4" src="images/project-thumb-8.jpg" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=Project+8'" alt="CFD Simulation Placeholder">
+                        <article class="bg-black/20 backdrop-blur-sm rounded-lg shadow-xl border border-white/10 p-3 transition duration-300 hover:shadow-brand-blue/50 cursor-pointer h-full">
+                            <img class="card-image mb-3" src="images/project-thumb-8.jpg" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=Project+8'" alt="CFD Simulation Placeholder">
                             <div class="p-1">
                                 <h3 class="text-xl font-semibold text-white">Template Project 8: CFD</h3>
-                                <div class="mt-3 space-x-2">
+                                <div class="mt-2 space-x-2">
                                     <span class="inline-block bg-brand-blue text-white text-xs font-medium px-2 py-0.5 rounded-full">Simulations</span>
                                     <span class="inline-block bg-brand-blue text-white text-xs font-medium px-2 py-0.5 rounded-full">Aerodynamics</span>
                                 </div>
@@ -374,16 +376,16 @@
                         </article>
                     </a>
 
-                    <!-- Project Card 9: New Placeholder - Opens a modal -->
+                    <!-- Project Card 9: New Placeholder -->
                     <a href="#" onclick="openProjectDetail(
                         'Template Project 9: Data Visualization', 
                         '<p>This is a placeholder description for Template Project 9. It focuses on using D3.js to create interactive and complex data visualizations for aerospace sensor data, transforming raw numbers into clear, actionable insights.</p>'
                     ); return false;" class="project-link-wrapper">
-                        <article class="bg-black/20 backdrop-blur-sm rounded-lg shadow-xl border border-white/10 p-4 transition duration-300 hover:shadow-brand-blue/50 cursor-pointer h-full">
-                            <img class="card-image mb-4" src="images/project-thumb-9.jpg" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=Project+9'" alt="Data Viz Placeholder">
+                        <article class="bg-black/20 backdrop-blur-sm rounded-lg shadow-xl border border-white/10 p-3 transition duration-300 hover:shadow-brand-blue/50 cursor-pointer h-full">
+                            <img class="card-image mb-3" src="images/project-thumb-9.jpg" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=Project+9'" alt="Data Viz Placeholder">
                             <div class="p-1">
                                 <h3 class="text-xl font-semibold text-white">Template Project 9: Data Viz</h3>
-                                <div class="mt-3 space-x-2">
+                                <div class="mt-2 space-x-2">
                                     <span class="inline-block bg-brand-blue text-white text-xs font-medium px-2 py-0.5 rounded-full">D3.js</span>
                                     <span class="inline-block bg-brand-blue text-white text-xs font-medium px-2 py-0.5 rounded-full">JavaScript</span>
                                 </div>
@@ -395,23 +397,23 @@
         </section> <!-- END of Left Brain View -->
 
 
-        <!-- 3. RIGHT BRAIN VIEW (Artistic/Creative Content) - With robust pt-64 for fixed header clearance -->
-        <section id="right-brain-view" class="hidden pt-64">
-            <div class="px-6 lg:px-10 py-10 lg:py-16 bg-black/20 backdrop-blur-md rounded-xl border border-white/10 content-filter">
+        <!-- 3. RIGHT BRAIN VIEW (Artistic/Creative Content) - Reduced Header Clearance and padding -->
+        <section id="right-brain-view" class="hidden pt-36">
+            <div class="px-4 lg:px-6 py-4 lg:py-6 bg-black/20 backdrop-blur-md rounded-xl border border-white/10 content-filter">
                 
-                <!-- Gallery Grid (3 per row) -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Gallery Grid (Reduced gap) -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     
                     <!-- Gallery Item 1: Photography -->
                     <a href="#" onclick="openProjectDetail(
                         'Photography: Urban Angles', 
                         '<p>A series of architectural photographs focused on geometric patterns and stark contrast found in modern cityscapes. The work emphasizes composition and lighting to transform ordinary structures into dynamic visual art.</p>'
                     ); return false;" class="project-link-wrapper">
-                        <article class="bg-black/20 backdrop-blur-sm rounded-lg shadow-xl border border-white/10 p-4 transition duration-300 hover:shadow-brand-blue/50 cursor-pointer h-full">
-                            <img class="card-image mb-4" src="images/gallery-thumb-1.jpg" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=Photo+1'" alt="Urban Photography">
+                        <article class="bg-black/20 backdrop-blur-sm rounded-lg shadow-xl border border-white/10 p-3 transition duration-300 hover:shadow-brand-blue/50 cursor-pointer h-full">
+                            <img class="card-image mb-3" src="images/gallery-thumb-1.jpg" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=Photo+1'" alt="Urban Photography">
                             <div class="p-1">
                                 <h3 class="text-xl font-semibold text-white">Urban Angles</h3>
-                                <div class="mt-3 space-x-2">
+                                <div class="mt-2 space-x-2">
                                     <span class="inline-block bg-brand-accent text-white text-xs font-medium px-2 py-0.5 rounded-full">Photography</span>
                                 </div>
                             </div>
@@ -423,11 +425,11 @@
                         'Digital Art: Abstract Flow', 
                         '<p>Created using Procreate, this piece explores the relationship between color gradients and organic forms. The intention was to translate the dynamic flow of fluid mechanics—a concept from my engineering side—into a purely visual, abstract medium.</p>'
                     ); return false;" class="project-link-wrapper">
-                        <article class="bg-black/20 backdrop-blur-sm rounded-lg shadow-xl border border-white/10 p-4 transition duration-300 hover:shadow-brand-blue/50 cursor-pointer h-full">
-                            <img class="card-image mb-4" src="images/gallery-thumb-2.jpg" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=Digital+Art'" alt="Digital Painting">
+                        <article class="bg-black/20 backdrop-blur-sm rounded-lg shadow-xl border border-white/10 p-3 transition duration-300 hover:shadow-brand-blue/50 cursor-pointer h-full">
+                            <img class="card-image mb-3" src="images/gallery-thumb-2.jpg" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=Digital+Art'" alt="Digital Painting">
                             <div class="p-1">
                                 <h3 class="text-xl font-semibold text-white">Abstract Flow</h3>
-                                <div class="mt-3 space-x-2">
+                                <div class="mt-2 space-x-2">
                                     <span class="inline-block bg-brand-accent text-white text-xs font-medium px-2 py-0.5 rounded-full">Digital Painting</span>
                                 </div>
                             </div>
@@ -439,11 +441,11 @@
                         'Sound Design: Sci-Fi Synthesis', 
                         '<p>A short audio composition created using modular synthesizers (software-based). The focus was on crafting a specific atmosphere—a blend of retro analog warmth and futuristic sci-fi sound effects, showcasing skills in audio engineering and music theory.</p>'
                     ); return false;" class="project-link-wrapper">
-                        <article class="bg-black/20 backdrop-blur-sm rounded-lg shadow-xl border border-white/10 p-4 transition duration-300 hover:shadow-brand-blue/50 cursor-pointer h-full">
-                            <img class="card-image mb-4" src="images/gallery-thumb-3.jpg" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=Sound+Design'" alt="Audio Waveform Visualization">
+                        <article class="bg-black/20 backdrop-blur-sm rounded-lg shadow-xl border border-white/10 p-3 transition duration-300 hover:shadow-brand-blue/50 cursor-pointer h-full">
+                            <img class="card-image mb-3" src="images/gallery-thumb-3.jpg" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=Sound+Design'" alt="Audio Waveform Visualization">
                             <div class="p-1">
                                 <h3 class="text-xl font-semibold text-white">Sci-Fi Synthesis</h3>
-                                <div class="mt-3 space-x-2">
+                                <div class="mt-2 space-x-2">
                                     <span class="inline-block bg-brand-accent text-white text-xs font-medium px-2 py-0.5 rounded-full">Music</span>
                                     <span class="inline-block bg-brand-accent text-white text-xs font-medium px-2 py-0.5 rounded-full">Sound Design</span>
                                 </div>
@@ -456,11 +458,11 @@
                         'Graphite Sketch: Mechanical Detail', 
                         '<p>A detailed graphite drawing of a complex mechanical assembly. This practice helps me visualize three-dimensional objects and understand how light interacts with intricate surfaces, bridging my technical and artistic observation skills.</p>'
                     ); return false;" class="project-link-wrapper">
-                        <article class="bg-black/20 backdrop-blur-sm rounded-lg shadow-xl border border-white/10 p-4 transition duration-300 hover:shadow-brand-blue/50 cursor-pointer h-full">
-                            <img class="card-image mb-4" src="images/gallery-thumb-4.jpg" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=Sketch'" alt="Graphite Sketch">
+                        <article class="bg-black/20 backdrop-blur-sm rounded-lg shadow-xl border border-white/10 p-3 transition duration-300 hover:shadow-brand-blue/50 cursor-pointer h-full">
+                            <img class="card-image mb-3" src="images/gallery-thumb-4.jpg" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=Sketch'" alt="Graphite Sketch">
                             <div class="p-1">
                                 <h3 class="text-xl font-semibold text-white">Mechanical Detail</h3>
-                                <div class="mt-3 space-x-2">
+                                <div class="mt-2 space-x-2">
                                     <span class="inline-block bg-brand-accent text-white text-xs font-medium px-2 py-0.5 rounded-full">Graphite</span>
                                     <span class="inline-block bg-brand-accent text-white text-xs font-medium px-2 py-0.5 rounded-full">Drawing</span>
                                 </div>
@@ -473,11 +475,11 @@
                         'Motion Graphics: Kinetic Typography', 
                         '<p>A short motion graphics piece created in Adobe After Effects focusing on kinetic typography. The project required precise timing and design to bring text to life and convey a narrative purely through movement and visual effects.</p>'
                     ); return false;" class="project-link-wrapper">
-                        <article class="bg-black/20 backdrop-blur-sm rounded-lg shadow-xl border border-white/10 p-4 transition duration-300 hover:shadow-brand-blue/50 cursor-pointer h-full">
-                            <img class="card-image mb-4" src="images/gallery-thumb-5.jpg" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=Motion+Design'" alt="Motion Graphics Screenshot">
+                        <article class="bg-black/20 backdrop-blur-sm rounded-lg shadow-xl border border-white/10 p-3 transition duration-300 hover:shadow-brand-blue/50 cursor-pointer h-full">
+                            <img class="card-image mb-3" src="images/gallery-thumb-5.jpg" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=Motion+Design'" alt="Motion Graphics Screenshot">
                             <div class="p-1">
                                 <h3 class="text-xl font-semibold text-white">Kinetic Typography</h3>
-                                <div class="mt-3 space-x-2">
+                                <div class="mt-2 space-x-2">
                                     <span class="inline-block bg-brand-accent text-white text-xs font-medium px-2 py-0.5 rounded-full">After Effects</span>
                                 </div>
                             </div>
@@ -489,11 +491,11 @@
                         'Creative Writing: Short Story', 
                         '<p>A piece of short fiction focusing on world-building and character development in a futuristic, low-gravity setting. Creative writing is a mental exercise in developing complex systems (like plot) and conveying ideas efficiently.</p>'
                     ); return false;" class="project-link-wrapper">
-                        <article class="bg-black/20 backdrop-blur-sm rounded-lg shadow-xl border border-white/10 p-4 transition duration-300 hover:shadow-brand-blue/50 cursor-pointer h-full">
-                            <img class="card-image mb-4" src="images/gallery-thumb-6.jpg" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=Writing'" alt="Typewriter or book">
+                        <article class="bg-black/20 backdrop-blur-sm rounded-lg shadow-xl border border-white/10 p-3 transition duration-300 hover:shadow-brand-blue/50 cursor-pointer h-full">
+                            <img class="card-image mb-3" src="images/gallery-thumb-6.jpg" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=Writing'" alt="Typewriter or book">
                             <div class="p-1">
                                 <h3 class="text-xl font-semibold text-white">Short Story: Low-G</h3>
-                                <div class="mt-3 space-x-2">
+                                <div class="mt-2 space-x-2">
                                     <span class="inline-block bg-brand-accent text-white text-xs font-medium px-2 py-0.5 rounded-full">Fiction</span>
                                     <span class="inline-block bg-brand-accent text-white text-xs font-medium px-2 py-0.5 rounded-full">World-Building</span>
                                 </div>
@@ -506,27 +508,24 @@
         </section> <!-- END of Right Brain View -->
         
 
-        <!-- 4. CONTACT SECTION (UPDATED with Form and LinkedIn) -->
-        <section id="contact-view" class="hidden min-h-screen pt-24 pb-12 flex flex-col justify-center items-center text-center">
-             <div class="w-full max-w-lg p-10 bg-black/20 backdrop-blur-md rounded-xl shadow-2xl border border-white/10 content-filter">
-                <h3 class="text-3xl font-extrabold text-brand-blue mb-6 tracking-tight">
-                    Get in Touch
-                </h3>
+        <!-- 4. CONTACT SECTION (Reduced padding and max-width) -->
+        <section id="contact-view" class="hidden min-h-screen pt-16 pb-8 flex flex-col justify-center items-center text-center">
+             <div class="w-full max-w-sm p-6 bg-black/20 backdrop-blur-md rounded-xl shadow-2xl border border-white/10 content-filter">
                 
-                <!-- LinkedIn Link -->
-                <p class="text-lg text-gray-300 mb-4">Connect with me on LinkedIn:</p>
+                <!-- LinkedIn Link (KEPT) -->
                 <a href="https://linkedin.com/in/mananmshah" target="_blank" rel="noopener noreferrer" 
-                   class="inline-flex items-center justify-center px-8 py-3 w-full sm:w-auto bg-brand-accent text-white font-semibold rounded-full shadow-lg transition duration-300 transform hover:scale-105 hover:bg-brand-blue mb-8">
-                   <svg class="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                   class="inline-flex items-center justify-center px-6 py-2 w-full sm:w-auto bg-brand-accent text-white font-semibold rounded-full shadow-lg transition duration-300 transform hover:scale-105 hover:bg-brand-blue mb-6">
+                   <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.723 7 2.456v6.779z"/>
                    </svg>
                    Visit My LinkedIn
                 </a>
 
-                <p class="text-lg text-gray-300 mb-6 border-t border-white/10 pt-6">Send a direct message:</p>
+                <!-- Direct Message Header (KEPT) -->
+                <p class="text-base text-gray-300 mb-4 border-t border-white/10 pt-4">Send a direct message:</p>
                 
-                <!-- Contact Form (Uses mailto: as a backend substitute) -->
-                <form action="mailto:mananmshah.8@gmail.com" method="POST" enctype="text/plain" class="space-y-4 text-left">
+                <!-- Contact Form (Uses mailto: as a backend substitute) (KEPT) -->
+                <form action="mailto:mananmshah.8@gmail.com" method="POST" enctype="text/plain" class="space-y-3 text-left">
                     
                     <!-- Name Field -->
                     <div>
@@ -543,17 +542,17 @@
                     <!-- Message Field -->
                     <div>
                         <label for="message" class="block text-sm font-medium text-gray-300 mb-1">Message</label>
-                        <textarea id="message" name="Message" rows="5" class="form-input" placeholder="Your message here..." required></textarea>
+                        <textarea id="message" name="Message" rows="4" class="form-input" placeholder="Your message here..." required></textarea>
                     </div>
 
                     <!-- Submit Button -->
-                    <button type="submit" class="w-full px-8 py-3 bg-brand-blue text-white font-semibold rounded-full shadow-lg transition duration-300 transform hover:scale-105 hover:bg-brand-accent mt-4">
+                    <button type="submit" class="w-full px-6 py-2 bg-brand-blue text-white font-semibold rounded-full shadow-lg transition duration-300 transform hover:scale-105 hover:bg-brand-accent mt-3">
                         Send Message
                     </button>
                     
                 </form>
 
-                <p class="text-xs text-gray-500 mt-4">
+                <p class="text-xs text-gray-500 mt-3">
                     Note: This form will open your default email application to send the message.
                 </p>
             </div>
@@ -563,7 +562,7 @@
     </main>
     
     <!-- ---------------------------------------------------- -->
-    <!-- MODAL POPUP FOR PROJECT DETAILS (REMOVED LINK BUTTON) -->
+    <!-- MODAL POPUP FOR PROJECT DETAILS -->
     <!-- ---------------------------------------------------- -->
     <div id="project-modal-overlay" class="modal-overlay" onclick="closeProjectDetail()">
         <div id="project-modal-content" class="modal-content" onclick="event.stopPropagation()">
@@ -578,7 +577,6 @@
                 <!-- Content injected by JavaScript -->
             </div>
             
-            <!-- REMOVED: The 'View Project (Google Search)' button was here -->
         </div>
     </div>
 
@@ -664,7 +662,6 @@
 
         /**
          * Opens the project detail modal and populates it with content.
-         * The 'link' parameter is no longer used, as the button was removed.
          * @param {string} title - The title of the project.
          * @param {string} bodyHtml - The detailed description body (can contain paragraphs).
          */
@@ -672,7 +669,6 @@
             // Set content
             document.getElementById('modal-title').textContent = title;
             document.getElementById('modal-body').innerHTML = bodyHtml;
-            // The modal-link element is no longer present, so we don't need to set its href.
 
             // Show modal
             document.getElementById('project-modal-overlay').classList.add('open');
