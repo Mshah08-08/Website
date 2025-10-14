@@ -77,7 +77,7 @@
 
         .card-image {
             width: 100%;
-            height: 240px; /* Made image "a tad bit bigger" (was 200px) */
+            height: 240px; 
             object-fit: cover;
             border-radius: 6px;
         }
@@ -116,10 +116,8 @@
         .modal-content {
             background: #00000a; /* Match the base body color */
             padding: 30px;
-            /* === MODIFIED FOR LARGER SIZE === */
             max-width: 1200px; /* Increased max width */
             width: 90%;        /* Allows it to use 90% of screen space */
-            /* =============================== */
             max-height: 90vh;
             overflow-y: auto;
             border-radius: 12px;
@@ -131,6 +129,30 @@
         
         .modal-overlay.open .modal-content {
             transform: scale(1);
+        }
+
+        /* ---------------------------------------------------- */
+        /* 4. CONTACT FORM STYLING */
+        /* ---------------------------------------------------- */
+        .form-input {
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(76, 81, 191, 0.5);
+            color: #e5e7eb;
+            padding: 12px;
+            border-radius: 8px;
+            width: 100%;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #7579ff;
+            box-shadow: 0 0 0 3px rgba(117, 121, 255, 0.3);
+        }
+
+        /* Ensure input focus looks great on both light and dark backgrounds */
+        input::placeholder, textarea::placeholder {
+            color: #9ca3af;
         }
     </style>
 </head>
@@ -176,8 +198,6 @@
         </nav>
     </div> <!-- END of Fixed Header DIV -->
 
-    <!-- *** DEDICATED SPACER DIV REMOVED *** -->
-
     <!-- ---------------------------------------------------- -->
     <!-- MAIN CONTENT VIEWS -->
     <!-- ---------------------------------------------------- -->
@@ -211,17 +231,15 @@
             </div>
         </section>
 
-        <!-- 2. LEFT BRAIN VIEW (Projects) - Increased padding to pt-52 -->
-        <section id="left-brain-view" class="hidden">
-            <!-- Content block for projects -->
-            <div class="px-6 lg:px-10 py-10 lg:py-16 bg-black/20 backdrop-blur-md rounded-xl border border-white/10 content-filter pt-52">
+        <!-- 2. LEFT BRAIN VIEW (Projects) - With robust pt-64 for fixed header clearance -->
+        <section id="left-brain-view" class="hidden pt-64">
+            <div class="px-6 lg:px-10 py-10 lg:py-16 bg-black/20 backdrop-blur-md rounded-xl border border-white/10 content-filter">
                 
                 <!-- Projects Grid (3 per row) -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     
                     <!-- Project Card 1: PC Build - Opens a modal -->
                     <a href="#" onclick="openProjectDetail(
-                        'https://www.google.com/search?q=PC+Build+Optimization+Guide', 
                         'PC Build & Optimization', 
                         '<p>This project involved designing, sourcing, and meticulously assembling a high-end personal computer system. Key work included BIOS tuning, aggressive thermal management, and deep operating system optimization to ensure maximum performance and stability for demanding applications like CAD and simulation.</p><p>It\'s a demonstration of practical hardware knowledge and systematic performance tuning.</p>'
                     ); return false;" class="project-link-wrapper">
@@ -239,7 +257,6 @@
 
                     <!-- Project Card 2: Rocket Mount - Opens a modal -->
                     <a href="#" onclick="openProjectDetail(
-                        'https://www.google.com/search?q=Rocket+Engine+Mount+Design', 
                         'Rocket Mount Design (CAD)', 
                         '<p>A structural design project focused on creating a lightweight yet robust engine mount for a hybrid rocket. This involved finite element analysis (FEA) in SolidWorks to test stress tolerance under various load conditions, optimizing the geometry for 3D printing in composite materials.</p><p>It showcases skills in CAD modeling, simulation, and material science application.</p>'
                     ); return false;" class="project-link-wrapper">
@@ -257,7 +274,6 @@
                     
                     <!-- Project Card 3: TVC Rocket - Opens a modal -->
                     <a href="#" onclick="openProjectDetail(
-                        'https://www.google.com/search?q=Thrust+Vector+Control+Rocket', 
                         'TVC Rocket Stabilization', 
                         '<p>Developed the guidance and control system for a model rocket using Thrust Vector Control (TVC). The core achievement was implementing a Proportional-Integral-Derivative (PID) control loop on an Arduino platform to maintain stable flight despite disturbances. This required precise sensor fusion and real-time computation.</p><p>A strong example of embedded systems programming and control theory.</p>'
                     ); return false;" class="project-link-wrapper">
@@ -275,7 +291,6 @@
 
                     <!-- Project Card 4: Placeholder 4 (Existing) - Opens a modal -->
                     <a href="#" onclick="openProjectDetail(
-                        'https://www.google.com/search?q=Machine+Learning+Model+Example', 
                         'Machine Learning Model', 
                         '<p>A deep learning model developed in Python using TensorFlow to classify astronomical images. I focused on data preprocessing pipelines and optimizing the neural network architecture for speed on limited hardware. The resulting model achieved high accuracy on a custom dataset.</p><p>Skills demonstrated include data science, Python programming, and model deployment.</p>'
                     ); return false;" class="project-link-wrapper">
@@ -293,7 +308,6 @@
                     
                     <!-- Project Card 5: Placeholder 5 (Existing) - Opens a modal -->
                     <a href="#" onclick="openProjectDetail(
-                        'https://www.google.com/search?q=Django+E-commerce+Backend+Tutorial', 
                         'E-commerce Backend', 
                         '<p>Designed and implemented the core backend services for a fictional small e-commerce platform using Django and PostgreSQL. This project covered user authentication, inventory management, and secure order processing. The focus was on scalability and clean API design.</p><p>Demonstrates proficiency in web framework development and database management.</p>'
                     ); return false;" class="project-link-wrapper">
@@ -311,7 +325,6 @@
                     
                     <!-- Project Card 6: Placeholder 6 (Existing) - Opens a modal -->
                     <a href="#" onclick="openProjectDetail(
-                        'https://www.google.com/search?q=Java+Game+Engine+Basics', 
                         'Simple Game Engine', 
                         '<p>Built a basic 2D game engine prototype in Java to understand graphics rendering pipelines and game loop mechanics. Features included scene management, a basic physics system for collisions, and user input handling.</p><p>This project solidified foundational knowledge in object-oriented programming and software architecture.</p>'
                     ); return false;" class="project-link-wrapper">
@@ -329,7 +342,6 @@
 
                     <!-- Project Card 7: New Placeholder - Opens a modal -->
                     <a href="#" onclick="openProjectDetail(
-                        'https://www.google.com/search?q=Placeholder+Project+7+Robotics', 
                         'Template Project 7: Robotics Control', 
                         '<p>This is a placeholder description for Template Project 7. It focuses on the development of a complex multi-axis robotics control algorithm written in C++ for industrial applications. Key concepts involved advanced kinematics and real-time path planning.</p>'
                     ); return false;" class="project-link-wrapper">
@@ -347,7 +359,6 @@
 
                     <!-- Project Card 8: New Placeholder - Opens a modal -->
                     <a href="#" onclick="openProjectDetail(
-                        'https://www.google.com/search?q=Placeholder+Project+8+CFD+Analysis', 
                         'Template Project 8: CFD Analysis', 
                         '<p>This is a placeholder description for Template Project 8. It involved running Computational Fluid Dynamics (CFD) simulations on various airfoil shapes to study lift-to-drag ratios. The goal was to optimize aerodynamic efficiency for a drone wing.</p>'
                     ); return false;" class="project-link-wrapper">
@@ -365,12 +376,11 @@
 
                     <!-- Project Card 9: New Placeholder - Opens a modal -->
                     <a href="#" onclick="openProjectDetail(
-                        'https://www.google.com/search?q=Placeholder+Project+9+Data+Viz', 
-                        'Template Project 9: Interactive Data Viz', 
-                        '<p>This is a placeholder description for Template Project 9. I built an interactive data visualization dashboard using JavaScript (D3.js) to display real-time sensor data from a campus weather station. Focus was on performance and user experience.</p>'
+                        'Template Project 9: Data Visualization', 
+                        '<p>This is a placeholder description for Template Project 9. It focuses on using D3.js to create interactive and complex data visualizations for aerospace sensor data, transforming raw numbers into clear, actionable insights.</p>'
                     ); return false;" class="project-link-wrapper">
                         <article class="bg-black/20 backdrop-blur-sm rounded-lg shadow-xl border border-white/10 p-4 transition duration-300 hover:shadow-brand-blue/50 cursor-pointer h-full">
-                            <img class="card-image mb-4" src="images/project-thumb-9.jpg" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=Project+9'" alt="Data Visualization Placeholder">
+                            <img class="card-image mb-4" src="images/project-thumb-9.jpg" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=Project+9'" alt="Data Viz Placeholder">
                             <div class="p-1">
                                 <h3 class="text-xl font-semibold text-white">Template Project 9: Data Viz</h3>
                                 <div class="mt-3 space-x-2">
@@ -380,336 +390,311 @@
                             </div>
                         </article>
                     </a>
+                </div> <!-- END of Grid -->
+            </div> <!-- END of Content Block -->
+        </section> <!-- END of Left Brain View -->
 
-                    <!-- Project Card 10: New Placeholder - Opens a modal -->
-                    <a href="#" onclick="openProjectDetail(
-                        'https://www.google.com/search?q=Placeholder+Project+10+Embedded+System', 
-                        'Template Project 10: Embedded System', 
-                        '<p>This is a placeholder description for Template Project 10. A small-scale embedded system project using a Raspberry Pi to monitor air quality in a laboratory setting. Data was logged to a cloud service using MQTT protocols.</p>'
-                    ); return false;" class="project-link-wrapper">
-                        <article class="bg-black/20 backdrop-blur-sm rounded-lg shadow-xl border border-white/10 p-4 transition duration-300 hover:shadow-brand-blue/50 cursor-pointer h-full">
-                            <img class="card-image mb-4" src="images/project-thumb-10.jpg" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=Project+10'" alt="Embedded System Placeholder">
-                            <div class="p-1">
-                                <h3 class="text-xl font-semibold text-white">Template Project 10: IoT</h3>
-                                <div class="mt-3 space-x-2">
-                                    <span class="inline-block bg-brand-blue text-white text-xs font-medium px-2 py-0.5 rounded-full">Raspberry Pi</span>
-                                    <span class="inline-block bg-brand-blue text-white text-xs font-medium px-2 py-0.5 rounded-full">MQTT</span>
-                                </div>
-                            </div>
-                        </article>
-                    </a>
 
-                    <!-- Project Card 11: New Placeholder - Opens a modal -->
-                    <a href="#" onclick="openProjectDetail(
-                        'https://www.google.com/search?q=Placeholder+Project+11+Algorithm', 
-                        'Template Project 11: Graph Algorithm Solver', 
-                        '<p>This is a placeholder description for Template Project 11. Implemented Dijkstra\'s and A* search algorithms in Python for finding optimal paths in complex graph structures. The focus was on optimizing the algorithms for speed on large datasets.</p>'
-                    ); return false;" class="project-link-wrapper">
-                        <article class="bg-black/20 backdrop-blur-sm rounded-lg shadow-xl border border-white/10 p-4 transition duration-300 hover:shadow-brand-blue/50 cursor-pointer h-full">
-                            <img class="card-image mb-4" src="images/project-thumb-11.jpg" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=Project+11'" alt="Algorithm Placeholder">
-                            <div class="p-1">
-                                <h3 class="text-xl font-semibold text-white">Template Project 11: Algorithms</h3>
-                                <div class="mt-3 space-x-2">
-                                    <span class="inline-block bg-brand-blue text-white text-xs font-medium px-2 py-0.5 rounded-full">Python</span>
-                                    <span class="inline-block bg-brand-blue text-white text-xs font-medium px-2 py-0.5 rounded-full">Pathfinding</span>
-                                </div>
-                            </div>
-                        </article>
-                    </a>
-                    
-                    <!-- Project Card 12: New Placeholder - Opens a modal -->
-                    <a href="#" onclick="openProjectDetail(
-                        'https://www.google.com/search?q=Placeholder+Project+12+Control+System', 
-                        'Template Project 13: Thermal Control System', 
-                        '<p>This is a placeholder description for Template Project 12. Designed and simulated a robust thermal control system using MATLAB/Simulink for a space environment application. The project tested the system\'s ability to reject disturbances and maintain a narrow temperature band.</p>'
-                    ); return false;" class="project-link-wrapper">
-                        <article class="bg-black/20 backdrop-blur-sm rounded-lg shadow-xl border border-white/10 p-4 transition duration-300 hover:shadow-brand-blue/50 cursor-pointer h-full">
-                            <img class="card-image mb-4" src="images/project-thumb-12.jpg" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=Project+12'" alt="Thermal Control Placeholder">
-                            <div class="p-1">
-                                <h3 class="text-xl font-semibold text-white">Template Project 12: Control System</h3>
-                                <div class="mt-3 space-x-2">
-                                    <span class="inline-block bg-brand-blue text-white text-xs font-medium px-2 py-0.5 rounded-full">MATLAB</span>
-                                    <span class="inline-block bg-brand-blue text-white text-xs font-medium px-2 py-0.5 rounded-full">Thermal</span>
-                                </div>
-                            </div>
-                        </article>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- 3. RIGHT BRAIN VIEW (Art) - Increased padding to pt-52 -->
-        <section id="right-brain-view" class="hidden">
-            <!-- Content block for art -->
-            <div class="px-6 lg:px-10 py-10 lg:py-16 bg-black/20 backdrop-blur-md rounded-xl border border-white/10 content-filter pt-52">
+        <!-- 3. RIGHT BRAIN VIEW (Artistic/Creative Content) - With robust pt-64 for fixed header clearance -->
+        <section id="right-brain-view" class="hidden pt-64">
+            <div class="px-6 lg:px-10 py-10 lg:py-16 bg-black/20 backdrop-blur-md rounded-xl border border-white/10 content-filter">
                 
-                <!-- Art Grid (2 per row on large screens) -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+                <!-- Gallery Grid (3 per row) -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     
-                    <!-- Art Card 1 -->
-                    <figure class="bg-black/20 backdrop-blur-sm rounded-lg shadow-xl border border-white/10 transition duration-300 hover:shadow-brand-accent/50 overflow-hidden">
-                        <img class="card-image" src="images/art-piece-1.jpg" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=Art+Piece+1'" alt="Digital Painting">
-                        <figcaption class="p-4">
-                            <h3 class="text-xl font-serif font-medium text-brand-accent">Digital Portrait: 'Echo'</h3>
-                            <p class="mt-1 text-sm text-gray-400">Procreate, Mood Study</p>
-                        </figcaption>
-                    </figure>
-
-                    <!-- Art Card 2 -->
-                    <figure class="bg-black/20 backdrop-blur-sm rounded-lg shadow-xl border border-white/10 transition duration-300 hover:shadow-brand-accent/50 overflow-hidden">
-                        <img class="card-image" src="images/art-piece-2.jpg" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=Art+Piece+2'" alt="Logo Design">
-                        <figcaption class="p-4">
-                            <h3 class="text-xl font-serif font-medium text-brand-accent">Branding: 'Arcana' Logo</h3>
-                            <p class="mt-1 text-sm text-gray-400">Minimalist Typography</p>
-                        </figcaption>
-                    </figure>
-
-                    <!-- Art Card 3 -->
-                    <figure class="bg-black/20 backdrop-blur-sm rounded-lg shadow-xl border border-white/10 transition duration-300 hover:shadow-brand-accent/50 overflow-hidden">
-                        <img class="card-image" src="images/art-piece-3.jpg" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=Art+Piece+3'" alt="Landscape Photo">
-                        <figcaption class="p-4">
-                            <h3 class="text-xl font-serif font-medium text-brand-accent">Photography: 'Urban Glitch'</h3>
-                            <p class="mt-1 text-sm text-gray-400">High Contrast, Street</p>
-                        </figcaption>
-                    </figure>
-                </div>
-            </div>
-        </section>
-
-        <!-- 4. CONTACT VIEW (Minimal vertical padding, relies on flex centering) -->
-        <section id="contact-view" class="hidden min-h-screen pt-12 pb-12 flex flex-col justify-center items-center text-center">
-            <div class="w-full max-w-3xl p-6 lg:p-10 bg-black/20 backdrop-blur-md rounded-xl border border-white/10 content-filter">
-                <header class="mb-8 text-center">
-                    <h2 class="text-3xl font-extrabold text-brand-blue tracking-wider">GET IN TOUCH</h2>
-                    
-                    <!-- Increased vertical spacing below this paragraph -->
-                    <p class="text-lg text-gray-300 mt-2 mb-6">Send me a message directly from the portfolio, or connect with me professionally.</p>
-                    
-                    <!-- Connect on LinkedIn Button (inside the inner box) -->
-                    <a href="YOUR_LINKEDIN_URL" target="_blank" rel="noopener noreferrer"
-                       class="mt-6 inline-flex items-center space-x-2 text-brand-accent hover:text-white transition duration-300 font-semibold p-3 rounded-xl border border-brand-accent/50 hover:bg-brand-blue/30">
-                        <!-- LinkedIn Icon (Inline SVG for clean inclusion) -->
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.57-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.723 7 2.404v6.831z"/>
-                        </svg>
-                        <span>Connect on LinkedIn</span>
+                    <!-- Gallery Item 1: Photography -->
+                    <a href="#" onclick="openProjectDetail(
+                        'Photography: Urban Angles', 
+                        '<p>A series of architectural photographs focused on geometric patterns and stark contrast found in modern cityscapes. The work emphasizes composition and lighting to transform ordinary structures into dynamic visual art.</p>'
+                    ); return false;" class="project-link-wrapper">
+                        <article class="bg-black/20 backdrop-blur-sm rounded-lg shadow-xl border border-white/10 p-4 transition duration-300 hover:shadow-brand-blue/50 cursor-pointer h-full">
+                            <img class="card-image mb-4" src="images/gallery-thumb-1.jpg" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=Photo+1'" alt="Urban Photography">
+                            <div class="p-1">
+                                <h3 class="text-xl font-semibold text-white">Urban Angles</h3>
+                                <div class="mt-3 space-x-2">
+                                    <span class="inline-block bg-brand-accent text-white text-xs font-medium px-2 py-0.5 rounded-full">Photography</span>
+                                </div>
+                            </div>
+                        </article>
                     </a>
-                </header>
 
-                <!-- Form starts below the header (inside the inner box) -->
-                <form id="contact-form" onsubmit="return handleMailtoSubmission(event)" class="space-y-6">
-                    <div>
-                        <label for="contact-name" class="block text-sm font-medium text-gray-300 mb-2">Your Name</label>
-                        <input type="text" id="contact-name" name="contact-name" required placeholder="John Doe"
-                               class="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 text-white focus:ring-brand-accent focus:border-brand-accent placeholder-gray-500">
-                    </div>
+                    <!-- Gallery Item 2: Digital Painting -->
+                    <a href="#" onclick="openProjectDetail(
+                        'Digital Art: Abstract Flow', 
+                        '<p>Created using Procreate, this piece explores the relationship between color gradients and organic forms. The intention was to translate the dynamic flow of fluid mechanics—a concept from my engineering side—into a purely visual, abstract medium.</p>'
+                    ); return false;" class="project-link-wrapper">
+                        <article class="bg-black/20 backdrop-blur-sm rounded-lg shadow-xl border border-white/10 p-4 transition duration-300 hover:shadow-brand-blue/50 cursor-pointer h-full">
+                            <img class="card-image mb-4" src="images/gallery-thumb-2.jpg" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=Digital+Art'" alt="Digital Painting">
+                            <div class="p-1">
+                                <h3 class="text-xl font-semibold text-white">Abstract Flow</h3>
+                                <div class="mt-3 space-x-2">
+                                    <span class="inline-block bg-brand-accent text-white text-xs font-medium px-2 py-0.5 rounded-full">Digital Painting</span>
+                                </div>
+                            </div>
+                        </article>
+                    </a>
 
-                    <div>
-                        <label for="contact-email" class="block text-sm font-medium text-gray-300 mb-2">Your Email</label>
-                        <input type="email" id="contact-email" name="contact-email" required placeholder="you@example.com"
-                               class="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 text-white focus:ring-brand-accent focus:border-brand-accent placeholder-gray-500">
-                    </div>
+                    <!-- Gallery Item 3: Sound Design / Music -->
+                    <a href="#" onclick="openProjectDetail(
+                        'Sound Design: Sci-Fi Synthesis', 
+                        '<p>A short audio composition created using modular synthesizers (software-based). The focus was on crafting a specific atmosphere—a blend of retro analog warmth and futuristic sci-fi sound effects, showcasing skills in audio engineering and music theory.</p>'
+                    ); return false;" class="project-link-wrapper">
+                        <article class="bg-black/20 backdrop-blur-sm rounded-lg shadow-xl border border-white/10 p-4 transition duration-300 hover:shadow-brand-blue/50 cursor-pointer h-full">
+                            <img class="card-image mb-4" src="images/gallery-thumb-3.jpg" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=Sound+Design'" alt="Audio Waveform Visualization">
+                            <div class="p-1">
+                                <h3 class="text-xl font-semibold text-white">Sci-Fi Synthesis</h3>
+                                <div class="mt-3 space-x-2">
+                                    <span class="inline-block bg-brand-accent text-white text-xs font-medium px-2 py-0.5 rounded-full">Music</span>
+                                    <span class="inline-block bg-brand-accent text-white text-xs font-medium px-2 py-0.5 rounded-full">Sound Design</span>
+                                </div>
+                            </div>
+                        </article>
+                    </a>
 
-                    <div>
-                        <label for="contact-message" class="block text-sm font-medium text-gray-300 mb-2">Message</label>
-                        <textarea id="contact-message" name="contact-message" rows="6" required placeholder="I'm interested in discussing your work on..."
-                                  class="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 text-white focus:ring-brand-accent focus:border-brand-accent placeholder-gray-500"></textarea>
-                    </div>
+                    <!-- Gallery Item 4: Sketching -->
+                    <a href="#" onclick="openProjectDetail(
+                        'Graphite Sketch: Mechanical Detail', 
+                        '<p>A detailed graphite drawing of a complex mechanical assembly. This practice helps me visualize three-dimensional objects and understand how light interacts with intricate surfaces, bridging my technical and artistic observation skills.</p>'
+                    ); return false;" class="project-link-wrapper">
+                        <article class="bg-black/20 backdrop-blur-sm rounded-lg shadow-xl border border-white/10 p-4 transition duration-300 hover:shadow-brand-blue/50 cursor-pointer h-full">
+                            <img class="card-image mb-4" src="images/gallery-thumb-4.jpg" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=Sketch'" alt="Graphite Sketch">
+                            <div class="p-1">
+                                <h3 class="text-xl font-semibold text-white">Mechanical Detail</h3>
+                                <div class="mt-3 space-x-2">
+                                    <span class="inline-block bg-brand-accent text-white text-xs font-medium px-2 py-0.5 rounded-full">Graphite</span>
+                                    <span class="inline-block bg-brand-accent text-white text-xs font-medium px-2 py-0.5 rounded-full">Drawing</span>
+                                </div>
+                            </div>
+                        </article>
+                    </a>
+
+                    <!-- Gallery Item 5: Video Editing / Motion Graphics -->
+                    <a href="#" onclick="openProjectDetail(
+                        'Motion Graphics: Kinetic Typography', 
+                        '<p>A short motion graphics piece created in Adobe After Effects focusing on kinetic typography. The project required precise timing and design to bring text to life and convey a narrative purely through movement and visual effects.</p>'
+                    ); return false;" class="project-link-wrapper">
+                        <article class="bg-black/20 backdrop-blur-sm rounded-lg shadow-xl border border-white/10 p-4 transition duration-300 hover:shadow-brand-blue/50 cursor-pointer h-full">
+                            <img class="card-image mb-4" src="images/gallery-thumb-5.jpg" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=Motion+Design'" alt="Motion Graphics Screenshot">
+                            <div class="p-1">
+                                <h3 class="text-xl font-semibold text-white">Kinetic Typography</h3>
+                                <div class="mt-3 space-x-2">
+                                    <span class="inline-block bg-brand-accent text-white text-xs font-medium px-2 py-0.5 rounded-full">After Effects</span>
+                                </div>
+                            </div>
+                        </article>
+                    </a>
+
+                    <!-- Gallery Item 6: Placeholder 6 (Existing) -->
+                    <a href="#" onclick="openProjectDetail(
+                        'Creative Writing: Short Story', 
+                        '<p>A piece of short fiction focusing on world-building and character development in a futuristic, low-gravity setting. Creative writing is a mental exercise in developing complex systems (like plot) and conveying ideas efficiently.</p>'
+                    ); return false;" class="project-link-wrapper">
+                        <article class="bg-black/20 backdrop-blur-sm rounded-lg shadow-xl border border-white/10 p-4 transition duration-300 hover:shadow-brand-blue/50 cursor-pointer h-full">
+                            <img class="card-image mb-4" src="images/gallery-thumb-6.jpg" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=Writing'" alt="Typewriter or book">
+                            <div class="p-1">
+                                <h3 class="text-xl font-semibold text-white">Short Story: Low-G</h3>
+                                <div class="mt-3 space-x-2">
+                                    <span class="inline-block bg-brand-accent text-white text-xs font-medium px-2 py-0.5 rounded-full">Fiction</span>
+                                    <span class="inline-block bg-brand-accent text-white text-xs font-medium px-2 py-0.5 rounded-full">World-Building</span>
+                                </div>
+                            </div>
+                        </article>
+                    </a>
+
+                </div> <!-- END of Grid -->
+            </div> <!-- END of Content Block -->
+        </section> <!-- END of Right Brain View -->
+        
+
+        <!-- 4. CONTACT SECTION (UPDATED with Form and LinkedIn) -->
+        <section id="contact-view" class="hidden min-h-screen pt-24 pb-12 flex flex-col justify-center items-center text-center">
+             <div class="w-full max-w-lg p-10 bg-black/20 backdrop-blur-md rounded-xl shadow-2xl border border-white/10 content-filter">
+                <h3 class="text-3xl font-extrabold text-brand-blue mb-6 tracking-tight">
+                    Get in Touch
+                </h3>
+                
+                <!-- LinkedIn Link -->
+                <p class="text-lg text-gray-300 mb-4">Connect with me on LinkedIn:</p>
+                <a href="https://linkedin.com/in/mananmshah" target="_blank" rel="noopener noreferrer" 
+                   class="inline-flex items-center justify-center px-8 py-3 w-full sm:w-auto bg-brand-accent text-white font-semibold rounded-full shadow-lg transition duration-300 transform hover:scale-105 hover:bg-brand-blue mb-8">
+                   <svg class="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.723 7 2.456v6.779z"/>
+                   </svg>
+                   Visit My LinkedIn
+                </a>
+
+                <p class="text-lg text-gray-300 mb-6 border-t border-white/10 pt-6">Send a direct message:</p>
+                
+                <!-- Contact Form (Uses mailto: as a backend substitute) -->
+                <form action="mailto:mananmshah.8@gmail.com" method="POST" enctype="text/plain" class="space-y-4 text-left">
                     
-                    <div id="form-message" class="text-center text-sm hidden p-2 rounded-lg bg-black/50 text-brand-accent border border-brand-accent/50"></div>
-
-                    <div class="pt-4">
-                        <button type="submit" 
-                                class="w-full px-6 py-3 rounded-full font-semibold text-base tracking-wider transition duration-300 
-                                       bg-brand-accent text-white hover:bg-brand-blue hover:shadow-xl hover:shadow-brand-accent/30">
-                            Send Message
-                        </button>
+                    <!-- Name Field -->
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-300 mb-1">Name</label>
+                        <input type="text" id="name" name="Name" class="form-input" placeholder="Your Name" required>
                     </div>
+
+                    <!-- Email Field -->
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-300 mb-1">Email</label>
+                        <input type="email" id="email" name="Email" class="form-input" placeholder="Your Email Address" required>
+                    </div>
+
+                    <!-- Message Field -->
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-300 mb-1">Message</label>
+                        <textarea id="message" name="Message" rows="5" class="form-input" placeholder="Your message here..." required></textarea>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="w-full px-8 py-3 bg-brand-blue text-white font-semibold rounded-full shadow-lg transition duration-300 transform hover:scale-105 hover:bg-brand-accent mt-4">
+                        Send Message
+                    </button>
+                    
                 </form>
+
+                <p class="text-xs text-gray-500 mt-4">
+                    Note: This form will open your default email application to send the message.
+                </p>
             </div>
         </section>
+
 
     </main>
     
-    <!-- 5. PROJECT DETAIL MODAL (Overlay) -->
-    <div id="project-modal" class="modal-overlay hidden" onclick="closeModal(event)">
-        <div class="modal-content" onclick="event.stopPropagation()">
-            <div class="flex justify-between items-start mb-6">
-                <h3 id="modal-title" class="text-3xl font-bold text-brand-accent">Project Title</h3>
-                <!-- Close Button -->
-                <button onclick="closeModal()" class="text-gray-400 hover:text-white transition duration-300 p-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </button>
+    <!-- ---------------------------------------------------- -->
+    <!-- MODAL POPUP FOR PROJECT DETAILS (REMOVED LINK BUTTON) -->
+    <!-- ---------------------------------------------------- -->
+    <div id="project-modal-overlay" class="modal-overlay" onclick="closeProjectDetail()">
+        <div id="project-modal-content" class="modal-content" onclick="event.stopPropagation()">
+            <!-- Close Button -->
+            <button onclick="closeProjectDetail()" class="absolute top-4 right-4 text-3xl text-white hover:text-brand-accent transition-colors duration-200" title="Close">
+                &times;
+            </button>
+            
+            <h2 id="modal-title" class="text-4xl font-extrabold text-brand-accent mb-4 border-b border-brand-accent/50 pb-2">Project Title</h2>
+            
+            <div id="modal-body" class="text-lg text-gray-300 mb-6 space-y-4">
+                <!-- Content injected by JavaScript -->
             </div>
             
-            <div id="modal-body" class="text-gray-300 space-y-4">
-                <!-- Dynamic content will be inserted here -->
-            </div>
-
-            <!-- Removed the 'View Live Project / Source' button here -->
-
+            <!-- REMOVED: The 'View Project (Google Search)' button was here -->
         </div>
     </div>
 
 
     <!-- ---------------------------------------------------- -->
-    <!-- JAVASCRIPT FOR INTERACTIVITY -->
+    <!-- JAVASCRIPT LOGIC -->
     <!-- ---------------------------------------------------- -->
     <script>
-        // --- Button Style Management ---
-        const ACTIVE_CLASSES = 'bg-brand-blue text-white hover:bg-brand-blue/80 hover:shadow-lg hover:shadow-brand-blue/30 border-brand-blue';
-        // INACTIVE_CLASSES uses bg-black/90 to block background swirls inside the button, keeping them readable.
-        const INACTIVE_CLASSES = 'border border-brand-accent text-brand-accent bg-black/90 hover:bg-brand-accent hover:text-white hover:shadow-lg hover:shadow-brand-accent/30';
-        const BASE_CLASSES = 'px-6 py-2 rounded-full font-semibold text-sm tracking-wider transition duration-300 ';
+        document.addEventListener('DOMContentLoaded', (event) => {
+            // Initial view state is 'home'
+            showSection('home');
+        });
 
-        function updateButtonStyles(activeSection) {
-            const leftButton = document.getElementById('left-button');
-            const rightButton = document.getElementById('right-button');
-            
-            // Helper function to apply the correct style set
-            const setStyle = (button, isActive) => {
-                button.className = BASE_CLASSES + (isActive ? ACTIVE_CLASSES : INACTIVE_CLASSES);
-            };
-
-            if (activeSection === 'left') {
-                setStyle(leftButton, true);
-                setStyle(rightButton, false);
-            } else if (activeSection === 'right') {
-                setStyle(leftButton, false);
-                setStyle(rightButton, true);
-            } else { // 'home', 'contact', or any other neutral state
-                setStyle(leftButton, false);
-                setStyle(rightButton, false);
-            }
-        }
-        // --- END Button Style Management ---
+        // Tracks the currently visible section
+        let currentSection = 'home';
 
         /**
-         * Opens the project detail modal overlay within the same page.
-         * The 'url' parameter is still accepted but no longer used to set a link.
-         * @param {string} url - The URL to the external project link (no longer used for a button).
-         * @param {string} title - The title of the project.
-         * @param {string} description - A detailed description of the project.
+         * Hides all main sections and shows the requested one.
+         * @param {string} sectionId - 'home', 'left', 'right', or 'contact'
          */
-        function openProjectDetail(url, title, description) {
-            const modal = document.getElementById('project-modal');
-            const modalTitle = document.getElementById('modal-title');
-            const modalBody = document.getElementById('modal-body');
+        function showSection(sectionId) {
+            // Map the simple IDs to the actual DOM IDs
+            const viewMap = {
+                'home': 'homepage-view',
+                'left': 'left-brain-view',
+                'right': 'right-brain-view',
+                'contact': 'contact-view'
+            };
+            
+            // Get all sections
+            const allSections = ['homepage-view', 'left-brain-view', 'right-brain-view', 'contact-view'];
+            
+            // Hide all
+            allSections.forEach(id => {
+                const element = document.getElementById(id);
+                if (element) element.classList.add('hidden');
+            });
 
+            // Show the target section
+            const targetId = viewMap[sectionId];
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+                targetElement.classList.remove('hidden');
+                currentSection = sectionId;
+                
+                // Update button styles
+                updateButtonStyles(sectionId);
+
+                // Scroll to the top of the main content area gracefully, 
+                // but only if we are moving away from the home screen.
+                if (sectionId !== 'home') {
+                    // Scroll to the main content wrapper (which has the padding)
+                    document.querySelector('main').scrollIntoView({ behavior: 'smooth' });
+                } else {
+                     window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+            }
+        }
+
+        /**
+         * Updates the active state style for the brain buttons.
+         * @param {string} activeSection - 'left' or 'right'
+         */
+        function updateButtonStyles(activeSection) {
+            const leftBtn = document.getElementById('left-button');
+            const rightBtn = document.getElementById('right-button');
+            
+            const activeClasses = 'bg-brand-accent text-white shadow-lg shadow-brand-accent/50';
+            const inactiveClasses = 'bg-black/90 text-brand-accent hover:bg-brand-accent hover:text-white hover:shadow-lg hover:shadow-brand-accent/30';
+
+            // Reset both buttons
+            leftBtn.className = leftBtn.className.replace(activeClasses, inactiveClasses).trim();
+            rightBtn.className = rightBtn.className.replace(activeClasses, inactiveClasses).trim();
+
+            // Set active class on the target button
+            if (activeSection === 'left') {
+                leftBtn.className = leftBtn.className.replace(inactiveClasses, activeClasses).trim();
+            } else if (activeSection === 'right') {
+                rightBtn.className = rightBtn.className.replace(inactiveClasses, activeClasses).trim();
+            }
+        }
+
+
+        /**
+         * Opens the project detail modal and populates it with content.
+         * The 'link' parameter is no longer used, as the button was removed.
+         * @param {string} title - The title of the project.
+         * @param {string} bodyHtml - The detailed description body (can contain paragraphs).
+         */
+        function openProjectDetail(title, bodyHtml) {
             // Set content
-            modalTitle.textContent = title;
-            modalBody.innerHTML = description; // Using innerHTML to allow for basic formatting (like <p>)
+            document.getElementById('modal-title').textContent = title;
+            document.getElementById('modal-body').innerHTML = bodyHtml;
+            // The modal-link element is no longer present, so we don't need to set its href.
 
-            // Show modal (using 'open' class for CSS transitions)
-            modal.classList.remove('hidden');
-            setTimeout(() => {
-                modal.classList.add('open');
-            }, 10); // Small delay for transition trigger
-
-            // Prevent scrolling on the main body
+            // Show modal
+            document.getElementById('project-modal-overlay').classList.add('open');
+            // Prevent scrolling on the body when modal is open
             document.body.style.overflow = 'hidden';
         }
 
         /**
-         * Closes the project detail modal overlay.
-         * Prevents closure if clicking on the content itself.
+         * Closes the project detail modal.
          */
-        function closeModal(event) {
-            // If the event target is the modal content itself, do nothing
-            if (event && event.target.closest('.modal-content')) {
-                return;
-            }
-            
-            const modal = document.getElementById('project-modal');
-            
-            // Hide modal
-            modal.classList.remove('open');
-            
-            // Wait for transition to finish before adding 'hidden'
-            setTimeout(() => {
-                modal.classList.add('hidden');
-            }, 300);
-
-            // Restore scrolling
-            document.body.style.overflow = 'auto';
+        function closeProjectDetail() {
+            document.getElementById('project-modal-overlay').classList.remove('open');
+            // Restore scrolling on the body
+            document.body.style.overflow = '';
         }
 
-        // Function to switch between views (Home, Left, Right, Contact)
-        function showSection(sectionName) {
-            
-            // Added 'contact-view' to the list of views
-            const views = ['homepage-view', 'left-brain-view', 'right-brain-view', 'contact-view'];
-            
-            views.forEach(id => {
-                const element = document.getElementById(id);
-                if (element) {
-                    element.classList.add('hidden');
-                }
-            });
-
-            // Determine the correct target ID based on the input
-            let targetId;
-            if (sectionName === 'home') {
-                targetId = 'homepage-view';
-            } else if (sectionName === 'left') {
-                targetId = 'left-brain-view';
-            } else if (sectionName === 'right') {
-                targetId = 'right-brain-view';
-            } else if (sectionName === 'contact') { // New contact view logic
-                targetId = 'contact-view';
+        // Add keyboard listener to close modal with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && document.getElementById('project-modal-overlay').classList.contains('open')) {
+                closeProjectDetail();
             }
-
-            const targetElement = document.getElementById(targetId);
-            
-            if (targetElement) {
-                targetElement.classList.remove('hidden');
-                // Scroll to the top of the content area for a clean transition
-                window.scrollTo(0, 0); 
-            }
-            
-            // Update button styles based on the active section
-            updateButtonStyles(sectionName);
-        }
-        
-        // Function to handle the custom mailto submission
-        function handleMailtoSubmission(event) {
-            event.preventDefault(); // Stop the default form submission (important)
-
-            const name = document.getElementById('contact-name').value;
-            const email = document.getElementById('contact-email').value;
-            const message = document.getElementById('contact-message').value;
-            const formMessage = document.getElementById('form-message');
-            
-            // Display notification to the user
-            formMessage.classList.remove('hidden');
-            formMessage.innerHTML = 'Thank you! Your email client is now opening to send this message to **mananmshah.8@gmail.com**. Please click send in that window.';
-
-            // Construct the mailto link with URL-encoded data
-            const subject = encodeURIComponent(`Portfolio Contact from ${name}`);
-            const body = encodeURIComponent(`Sender Name: ${name}\nSender Email: ${email}\n\n---\n\nMessage:\n${message}`);
-            
-            const mailtoLink = `mailto:mananmshah.8@gmail.com?subject=${subject}&body=${body}`;
-            
-            // Open the user's email client
-            // We use a small delay to ensure the user reads the message above before the client opens.
-            setTimeout(() => {
-                window.location.href = mailtoLink;
-                // Optionally reset the form after a short delay (for usability)
-                document.getElementById('contact-form').reset();
-                formMessage.classList.add('hidden');
-            }, 1000); 
-
-            return false; // Prevent traditional form submission
-        }
-
-
-        // Initialize the view on load, ensuring buttons start neutral
-        window.onload = () => {
-            showSection('home');
-        };
+        });
     </script>
 </body>
 </html>
-        // Initialize the view on load, ensuring buttons start neutral
