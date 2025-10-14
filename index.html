@@ -36,27 +36,27 @@
         #fractal-bg {
             background: #00000a; /* Deep dark base */
             background-image: 
-                /* Layer 1: Main Swirls - INCREASED brightness and opacity */
+                /* Layer 1: Main Swirls - CENTERED and bright */
                 repeating-radial-gradient(circle at center, 
                     rgba(117, 121, 255, 0.35) 0%, /* Opacity INCREASED to 0.35 for more visibility */
                     rgba(76, 81, 191, 0.50) 1.8%,   /* Opacity INCREASED to 0.50 for brighter swirls */
                     transparent 2.5%, /* Increased stop for softer transition */
                     transparent 15% 
                 ),
-                /* Layer 2: Top-right offset swirls - INCREASED brightness and opacity */
-                repeating-radial-gradient(circle at 100% 0%, 
+                /* Layer 2: Top-center swirls - CENTERED horizontally */
+                repeating-radial-gradient(circle at 50% 0%, 
                     rgba(117, 121, 255, 0.45) 0%, /* Opacity INCREASED to 0.45 for more prominence */
-                    transparent 15% /* Increased gradient spread (was 12%) */
+                    transparent 15%
                 ),
-                /* Large, subtle, swirling pattern for flow (Right Side) - INCREASED brightness and opacity */
-                radial-gradient(ellipse at 80% 60%, 
+                /* Large, subtle, swirling pattern for flow - CENTERED RIGHT */
+                radial-gradient(ellipse at 50% 60%, 
                     rgba(117, 121, 255, 0.55) 0%, /* Opacity INCREASED to 0.55 and using brighter blue */
-                    transparent 40% /* Increased gradient spread (was 30%) */
+                    transparent 40%
                 ),
-                /* Large, subtle, swirling pattern for flow (Left Side) - INCREASED brightness and opacity */
-                radial-gradient(circle at 20% 40%, 
+                /* Large, subtle, swirling pattern for flow - CENTERED LEFT */
+                radial-gradient(circle at 50% 40%, 
                     rgba(117, 121, 255, 0.35) 0%, /* Opacity INCREASED to 0.35 and using brighter blue */
-                    transparent 40% /* Increased gradient spread (was 30%) */
+                    transparent 40%
                 ),
                 /* Deepest Base Layer */
                 linear-gradient(135deg, rgba(3, 3, 30, 1) 0%, rgba(0, 0, 0, 1) 100%);
