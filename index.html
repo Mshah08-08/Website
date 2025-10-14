@@ -73,19 +73,8 @@
 
         /* ---------------------------------------------------- */
         /* 2. LAYOUT & SCROLLING */
-        /* Increased padding-top significantly to push content much further down from the fixed header */
         /* ---------------------------------------------------- */
-        .content-wrapper {
-            /* Adjusted padding-top to 300px for mobile (was 220px) */
-            padding-top: 300px; 
-            padding-bottom: 40px;
-        }
-        @media (min-width: 1024px) {
-            .content-wrapper {
-                /* Adjusted padding-top to 240px for desktop (was 160px) */
-                padding-top: 240px;
-            }
-        }
+
         .card-image {
             width: 100%;
             height: 240px; /* Made image "a tad bit bigger" (was 200px) */
@@ -149,7 +138,6 @@
 
     <!-- ---------------------------------------------------- -->
     <!-- FIXED HEADER & NAVIGATION (The Collar) -->
-    <!-- Opacity remains at 60% (bg-black/60) as requested. -->
     <!-- ---------------------------------------------------- -->
     <div class="fixed top-0 left-0 right-0 z-50 bg-black/60 backdrop-blur-sm shadow-2xl shadow-black">
         
@@ -186,17 +174,17 @@
                 R I G H T &nbsp; B R A I N
             </button>
         </nav>
-    </div>
+    </div> <!-- END of Fixed Header DIV -->
+
+    <!-- *** DEDICATED SPACER DIV REMOVED *** -->
 
     <!-- ---------------------------------------------------- -->
     <!-- MAIN CONTENT VIEWS -->
     <!-- ---------------------------------------------------- -->
-    <main class="content-wrapper p-6 lg:p-12 max-w-7xl mx-auto">
+    <main class="p-6 lg:p-12 max-w-7xl mx-auto">
         
-        <!-- 1. HOMEPAGE VIEW -->
-        <!-- Note: Homepage also benefits from the increased padding in .content-wrapper, pushing its centered content lower. -->
+        <!-- 1. HOMEPAGE VIEW (Minimal vertical padding, relies on flex centering) -->
         <section id="homepage-view" class="min-h-screen pt-24 pb-12 flex flex-col justify-center items-center text-center">
-            <!-- UPDATED OPACITY HERE: bg-black/20 -->
             <div class="w-full max-w-4xl p-10 bg-black/20 backdrop-blur-md rounded-xl shadow-2xl border border-white/10 content-filter">
                 
                 <!-- About Me Content -->
@@ -223,10 +211,10 @@
             </div>
         </section>
 
-        <!-- 2. LEFT BRAIN VIEW (Projects) -->
+        <!-- 2. LEFT BRAIN VIEW (Projects) - Added pt-40 (160px) for fixed header clearance -->
         <section id="left-brain-view" class="hidden">
-            <!-- Maintaining high internal padding (pt-20/lg:pt-24) inside the box for extra clearance -->
-            <div class="px-6 lg:px-10 pt-20 pb-10 lg:pt-24 lg:pb-16 bg-black/20 backdrop-blur-md rounded-xl border border-white/10 content-filter">
+            <!-- Content block for projects -->
+            <div class="px-6 lg:px-10 py-10 lg:py-16 bg-black/20 backdrop-blur-md rounded-xl border border-white/10 content-filter pt-40">
                 
                 <!-- Projects Grid (3 per row) -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -450,10 +438,10 @@
             </div>
         </section>
 
-        <!-- 3. RIGHT BRAIN VIEW (Art) -->
+        <!-- 3. RIGHT BRAIN VIEW (Art) - Added pt-40 (160px) for fixed header clearance -->
         <section id="right-brain-view" class="hidden">
-            <!-- Maintaining high internal padding (pt-20/lg:pt-24) inside the box for extra clearance -->
-            <div class="px-6 lg:px-10 pt-20 pb-10 lg:pt-24 lg:pb-16 bg-black/20 backdrop-blur-md rounded-xl border border-white/10 content-filter">
+            <!-- Content block for art -->
+            <div class="px-6 lg:px-10 py-10 lg:py-16 bg-black/20 backdrop-blur-md rounded-xl border border-white/10 content-filter pt-40">
                 
                 <!-- Art Grid (2 per row on large screens) -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
@@ -488,9 +476,8 @@
             </div>
         </section>
 
-        <!-- 4. CONTACT VIEW -->
+        <!-- 4. CONTACT VIEW (Minimal vertical padding, relies on flex centering) -->
         <section id="contact-view" class="hidden min-h-screen pt-12 pb-12 flex flex-col justify-center items-center text-center">
-            <!-- UPDATED OPACITY HERE: bg-black/20 -->
             <div class="w-full max-w-3xl p-6 lg:p-10 bg-black/20 backdrop-blur-md rounded-xl border border-white/10 content-filter">
                 <header class="mb-8 text-center">
                     <h2 class="text-3xl font-extrabold text-brand-blue tracking-wider">GET IN TOUCH</h2>
