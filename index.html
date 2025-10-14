@@ -77,9 +77,9 @@
 
         .card-image {
             width: 100%;
-            height: 200px; /* Slight reduction for card height */
+            height: 280px; /* INCREASED from 200px - makes images taller */
             object-fit: cover;
-            border-radius: 6px;
+            border-radius: 8px; /* INCREASED from 6px for better look */
         }
         
         /* Ensures the whole card area is clickable, not just the text */
@@ -397,20 +397,20 @@
         </section> <!-- END of Left Brain View -->
 
 
-        <!-- 3. RIGHT BRAIN VIEW (Artistic/Creative Content) - Reduced Header Clearance and padding -->
+        <!-- 3. RIGHT BRAIN VIEW (Artistic/Creative Content) - UPDATED WITH MORE SPACING -->
         <section id="right-brain-view" class="hidden pt-36">
             <div class="px-4 lg:px-6 py-4 lg:py-6 bg-black/20 backdrop-blur-md rounded-xl border border-white/10 content-filter">
                 
-                <!-- Gallery Grid (Reduced gap) -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <!-- Gallery Grid - INCREASED gap from gap-4 to gap-8 -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     
-                    <!-- Gallery Item 1: Photography -->
+                    <!-- Gallery Item 1: Photography - UPDATED PADDING AND MARGIN -->
                     <a href="#" onclick="openProjectDetail(
                         'Photography: Urban Angles', 
                         '<p>A series of architectural photographs focused on geometric patterns and stark contrast found in modern cityscapes. The work emphasizes composition and lighting to transform ordinary structures into dynamic visual art.</p>'
                     ); return false;" class="project-link-wrapper">
-                        <article class="bg-black/20 backdrop-blur-sm rounded-lg shadow-xl border border-white/10 p-3 transition duration-300 hover:shadow-brand-blue/50 cursor-pointer h-full">
-                            <img class="card-image mb-3" src="images/gallery-thumb-1.jpg" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=Photo+1'" alt="Urban Photography">
+                        <article class="bg-black/20 backdrop-blur-sm rounded-lg shadow-xl border border-white/10 p-5 transition duration-300 hover:shadow-brand-blue/50 cursor-pointer h-full">
+                            <img class="card-image mb-5" src="images/gallery-thumb-1.jpg" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=Photo+1'" alt="Urban Photography">
                             <div class="p-1">
                                 <h3 class="text-xl font-semibold text-white">Urban Angles</h3>
                                 <div class="mt-2 space-x-2">
@@ -420,13 +420,13 @@
                         </article>
                     </a>
 
-                    <!-- Gallery Item 2: Digital Painting -->
+                    <!-- Gallery Item 2: Digital Painting - UPDATED PADDING AND MARGIN -->
                     <a href="#" onclick="openProjectDetail(
                         'Digital Art: Abstract Flow', 
                         '<p>Created using Procreate, this piece explores the relationship between color gradients and organic forms. The intention was to translate the dynamic flow of fluid mechanics—a concept from my engineering side—into a purely visual, abstract medium.</p>'
                     ); return false;" class="project-link-wrapper">
-                        <article class="bg-black/20 backdrop-blur-sm rounded-lg shadow-xl border border-white/10 p-3 transition duration-300 hover:shadow-brand-blue/50 cursor-pointer h-full">
-                            <img class="card-image mb-3" src="images/gallery-thumb-2.jpg" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=Digital+Art'" alt="Digital Painting">
+                        <article class="bg-black/20 backdrop-blur-sm rounded-lg shadow-xl border border-white/10 p-5 transition duration-300 hover:shadow-brand-blue/50 cursor-pointer h-full">
+                            <img class="card-image mb-5" src="images/gallery-thumb-2.jpg" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=Digital+Art'" alt="Digital Painting">
                             <div class="p-1">
                                 <h3 class="text-xl font-semibold text-white">Abstract Flow</h3>
                                 <div class="mt-2 space-x-2">
@@ -436,13 +436,13 @@
                         </article>
                     </a>
 
-                    <!-- Gallery Item 3: Sound Design / Music -->
+                    <!-- Gallery Item 3: Sound Design / Music - UPDATED PADDING AND MARGIN -->
                     <a href="#" onclick="openProjectDetail(
                         'Sound Design: Sci-Fi Synthesis', 
                         '<p>A short audio composition created using modular synthesizers (software-based). The focus was on crafting a specific atmosphere—a blend of retro analog warmth and futuristic sci-fi sound effects, showcasing skills in audio engineering and music theory.</p>'
                     ); return false;" class="project-link-wrapper">
-                        <article class="bg-black/20 backdrop-blur-sm rounded-lg shadow-xl border border-white/10 p-3 transition duration-300 hover:shadow-brand-blue/50 cursor-pointer h-full">
-                            <img class="card-image mb-3" src="images/gallery-thumb-3.jpg" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=Sound+Design'" alt="Audio Waveform Visualization">
+                        <article class="bg-black/20 backdrop-blur-sm rounded-lg shadow-xl border border-white/10 p-5 transition duration-300 hover:shadow-brand-blue/50 cursor-pointer h-full">
+                            <img class="card-image mb-5" src="images/gallery-thumb-3.jpg" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=Sound+Design'" alt="Audio Waveform Visualization">
                             <div class="p-1">
                                 <h3 class="text-xl font-semibold text-white">Sci-Fi Synthesis</h3>
                                 <div class="mt-2 space-x-2">
@@ -453,13 +453,13 @@
                         </article>
                     </a>
 
-                    <!-- Gallery Item 4: Sketching -->
+                    <!-- Gallery Item 4: Sketching - UPDATED PADDING AND MARGIN -->
                     <a href="#" onclick="openProjectDetail(
                         'Graphite Sketch: Mechanical Detail', 
                         '<p>A detailed graphite drawing of a complex mechanical assembly. This practice helps me visualize three-dimensional objects and understand how light interacts with intricate surfaces, bridging my technical and artistic observation skills.</p>'
                     ); return false;" class="project-link-wrapper">
-                        <article class="bg-black/20 backdrop-blur-sm rounded-lg shadow-xl border border-white/10 p-3 transition duration-300 hover:shadow-brand-blue/50 cursor-pointer h-full">
-                            <img class="card-image mb-3" src="images/gallery-thumb-4.jpg" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=Sketch'" alt="Graphite Sketch">
+                        <article class="bg-black/20 backdrop-blur-sm rounded-lg shadow-xl border border-white/10 p-5 transition duration-300 hover:shadow-brand-blue/50 cursor-pointer h-full">
+                            <img class="card-image mb-5" src="images/gallery-thumb-4.jpg" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=Sketch'" alt="Graphite Sketch">
                             <div class="p-1">
                                 <h3 class="text-xl font-semibold text-white">Mechanical Detail</h3>
                                 <div class="mt-2 space-x-2">
@@ -470,13 +470,13 @@
                         </article>
                     </a>
 
-                    <!-- Gallery Item 5: Video Editing / Motion Graphics -->
+                    <!-- Gallery Item 5: Video Editing / Motion Graphics - UPDATED PADDING AND MARGIN -->
                     <a href="#" onclick="openProjectDetail(
                         'Motion Graphics: Kinetic Typography', 
                         '<p>A short motion graphics piece created in Adobe After Effects focusing on kinetic typography. The project required precise timing and design to bring text to life and convey a narrative purely through movement and visual effects.</p>'
                     ); return false;" class="project-link-wrapper">
-                        <article class="bg-black/20 backdrop-blur-sm rounded-lg shadow-xl border border-white/10 p-3 transition duration-300 hover:shadow-brand-blue/50 cursor-pointer h-full">
-                            <img class="card-image mb-3" src="images/gallery-thumb-5.jpg" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=Motion+Design'" alt="Motion Graphics Screenshot">
+                        <article class="bg-black/20 backdrop-blur-sm rounded-lg shadow-xl border border-white/10 p-5 transition duration-300 hover:shadow-brand-blue/50 cursor-pointer h-full">
+                            <img class="card-image mb-5" src="images/gallery-thumb-5.jpg" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=Motion+Design'" alt="Motion Graphics Screenshot">
                             <div class="p-1">
                                 <h3 class="text-xl font-semibold text-white">Kinetic Typography</h3>
                                 <div class="mt-2 space-x-2">
@@ -486,13 +486,13 @@
                         </article>
                     </a>
 
-                    <!-- Gallery Item 6: Placeholder 6 (Existing) -->
+                    <!-- Gallery Item 6: Placeholder 6 (Existing) - UPDATED PADDING AND MARGIN -->
                     <a href="#" onclick="openProjectDetail(
                         'Creative Writing: Short Story', 
                         '<p>A piece of short fiction focusing on world-building and character development in a futuristic, low-gravity setting. Creative writing is a mental exercise in developing complex systems (like plot) and conveying ideas efficiently.</p>'
                     ); return false;" class="project-link-wrapper">
-                        <article class="bg-black/20 backdrop-blur-sm rounded-lg shadow-xl border border-white/10 p-3 transition duration-300 hover:shadow-brand-blue/50 cursor-pointer h-full">
-                            <img class="card-image mb-3" src="images/gallery-thumb-6.jpg" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=Writing'" alt="Typewriter or book">
+                        <article class="bg-black/20 backdrop-blur-sm rounded-lg shadow-xl border border-white/10 p-5 transition duration-300 hover:shadow-brand-blue/50 cursor-pointer h-full">
+                            <img class="card-image mb-5" src="images/gallery-thumb-6.jpg" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=Writing'" alt="Typewriter or book">
                             <div class="p-1">
                                 <h3 class="text-xl font-semibold text-white">Short Story: Low-G</h3>
                                 <div class="mt-2 space-x-2">
