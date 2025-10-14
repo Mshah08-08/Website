@@ -3,164 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manan Shah</title>
+    <title>Your Name | Left & Right Brain Portfolio</title>
     <link rel="stylesheet" href="css/style.css">
-</head>
+    </head>
 <body>
-    <!-- Collar/Header with Left/Right Brain Concept -->
-    <header class="collar">
-        <div class="container collar-content">
-            <div class="collar-left">
-                <span class="brain-icon left">🧠</span>
-                <button class="toggle-btn collar-toggle active" data-side="left">Technical</button>
-            </div>
-            <div class="collar-center">
-                <a href="#home" class="name">Manan Shah</a>
-                <div class="tagline">Exploring both sides of the mind</div>
-            </div>
-            <div class="collar-right">
-                <button class="toggle-btn collar-toggle" data-side="right">Creative</button>
-                <span class="brain-icon right">🎨</span>
-            </div>
+
+    <div class="split-container">
+
+        <div class="split-section left-brain">
+            <header class="section-header">
+                <h2>L E F T &nbsp; B R A I N</h2>
+                <h1>Analytical & Logical Projects</h1>
+                <p>Coding, Engineering, Data Analysis, and Technical Work.</p>
+            </header>
+            
+            <section class="content-grid projects-grid">
+                <article class="content-card project-card">
+                    <img src="images/project-thumb-1.jpg" alt="Thumbnail for Project Title 1">
+                    <h3><a href="#" target="_blank">Project Title 1: Data Dashboard</a></h3>
+                    <p>A description of the project, the technologies used (e.g., Python, React), and the problem it solved.</p>
+                    <span class="tags">#Python #DataViz #WebDev</span>
+                </article>
+
+                <article class="content-card project-card">
+                    <img src="images/project-thumb-2.jpg" alt="Thumbnail for Project Title 2">
+                    <h3><a href="#" target="_blank">Project Title 2: Mobile App</a></h3>
+                    <p>Details about the mobile application, its key features, and development stack (e.g., Swift/Kotlin).</p>
+                    <span class="tags">#MobileDev #iOS #UI/UX</span>
+                </article>
+
+                <article class="content-card project-card">
+                    <img src="images/project-thumb-3.jpg" alt="Thumbnail for Project Title 3">
+                    <h3><a href="#" target="_blank">Project Title 3: Open Source Contribution</a></h3>
+                    <p>Summarize your contribution to a larger open-source project and its impact.</p>
+                    <span class="tags">#OpenSource #Git #Collaboration</span>
+                </article>
+            </section>
+            
+            <footer class="contact-footer">
+                <a href="#">View All Projects →</a>
+            </footer>
         </div>
-        <nav>
-            <div class="container">
-                <div class="links">
-                    <a href="#home">Home</a>
-                    <a href="#work">Work</a>
-                    <a href="#contact">Contact</a>
-                </div>
-            </div>
-        </nav>
-    </header>
 
-    <!-- Home -->
-    <section id="home">
-        <div class="container">
-            <h1>Manan Shah</h1>
-            <p class="intro">
-                I build things. Rockets, robots, go-karts, software. Currently working on autonomous systems 
-                and AI research. Based in Texas, studying engineering.
-            </p>
+        <div class="split-section right-brain">
+            <header class="section-header">
+                <h2>R I G H T &nbsp; B R A I N</h2>
+                <h1>Creative & Intuitive Expression</h1>
+                <p>Illustration, Design, Writing, Music, and Artistic Endeavors.</p>
+            </header>
+
+            <section class="content-grid art-gallery">
+                <figure class="content-card art-card">
+                    <img src="images/art-piece-1.jpg" alt="Digital Painting of a Landscape">
+                    <figcaption>
+                        <h3>Digital Painting: 'Vibrant Solitude'</h3>
+                        <p>A brief note on the medium (Procreate/Photoshop) and the inspiration.</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="content-card art-card">
+                    <img src="images/art-piece-2.jpg" alt="Sketch of a Character Design">
+                    <figcaption>
+                        <h3>Sketchbook: Character Design</h3>
+                        <p>Exploration of form and expression in traditional media (pencil/ink).</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="content-card art-card">
+                    <img src="images/art-piece-3.jpg" alt="Graphic Design Logo Mockup">
+                    <figcaption>
+                        <h3>Graphic Design: Logo Suite</h3>
+                        <p>Branding work for a conceptual company, focusing on clean lines and color psychology.</p>
+                    </figcaption>
+                </figure>
+                </section>
+            
+            <footer class="contact-footer">
+                <a href="#">Explore The Gallery →</a>
+            </footer>
         </div>
-    </section>
 
-    <!-- Work Section with Toggle -->
-    <section id="work">
-        <div class="container">
-            <!-- Toggle Switch (moved to collar/header) -->
-
-            <!-- Left Brain Content -->
-            <div class="brain-content" id="left-brain">
-                <div class="projects">
-                    <div class="item">
-                        <h3>Thrust Vector Control Rocket</h3>
-                        <p>Building a rocket with active stabilization using servo-controlled gimbals and custom flight computer. Working on PID tuning for stable flight.</p>
-                        <span class="year">2024</span>
-                    </div>
-
-                    <div class="item">
-                        <h3>Fin-Controlled Rocket</h3>
-                        <p>Alternative approach to rocket stabilization using movable fins instead of thrust vectoring. Testing different actuator designs.</p>
-                        <span class="year">2024</span>
-                    </div>
-
-                    <div class="item">
-                        <h3>Autonomous RC Car</h3>
-                        <p>Self-driving RC car using ESP32 and computer vision. Phase 1 is basic CV navigation, phase 2 is training a neural network on collected data.</p>
-                        <span class="year">2024 - Present</span>
-                    </div>
-
-                    <div class="item">
-                        <h3>Electric Go-Kart</h3>
-                        <p>Built an electric go-kart from scratch. Designed frame, integrated brushless motor system, wrote ESC control code.</p>
-                        <span class="year">2023</span>
-                    </div>
-
-                    <div class="item">
-                        <h3>3D Printing Bot</h3>
-                        <p>Automated 3D printing setup for rapid prototyping. Use it to manufacture parts for most of my other projects.</p>
-                        <span class="year">2023</span>
-                    </div>
-
-                    <div class="item">
-                        <h3>RC Airplane</h3>
-                        <p>Custom RC plane built from scratch. Learning about aerodynamics, control surfaces, and stability.</p>
-                        <span class="year">2023</span>
-                    </div>
-
-                    <div class="item">
-                        <h3>RC Boat</h3>
-                        <p>Radio-controlled boat project. Testing different hull designs and propulsion systems.</p>
-                        <span class="year">2023</span>
-                    </div>
-
-                    <div class="item">
-                        <h3>Custom PC Build</h3>
-                        <p>Built a workstation for CAD work, simulations, and running machine learning models.</p>
-                        <span class="year">2022</span>
-                    </div>
-
-                    <div class="item">
-                        <h3>LLM Research</h3>
-                        <p>Writing a research paper on Large Language Model development lifecycle for the NMI conference. Looking at systems challenges and ethical considerations.</p>
-                        <span class="year">2024</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Right Brain Content -->
-            <div class="brain-content hidden" id="right-brain">
-                <div class="artwork">
-                    <a class="art-item" href="art-rocket-sketch.html">
-                        <div class="art-img">
-                            <img src="images/art1.jpg" alt="Rocket Sketch">
-                        </div>
-                        <h3>Rocket Sketch</h3>
-                        <p>Concept art for thrust vector rocket design.</p>
-                    </a>
-                    <a class="art-item" href="art-go-kart-blueprint.html">
-                        <div class="art-img">
-                            <img src="images/art2.jpg" alt="Go-Kart Blueprint">
-                        </div>
-                        <h3>Go-Kart Blueprint</h3>
-                        <p>Hand-drawn plans for electric go-kart frame.</p>
-                    </a>
-                    <a class="art-item" href="art-digital-painting.html">
-                        <div class="art-img">
-                            <img src="images/art3.jpg" alt="Digital Painting">
-                        </div>
-                        <h3>Digital Painting</h3>
-                        <p>AI-inspired abstract artwork.</p>
-                    </a>
-                    <a class="art-item" href="art-photography.html">
-                        <div class="art-img">
-                            <img src="images/art4.jpg" alt="Photography">
-                        </div>
-                        <h3>Photography</h3>
-                        <p>Experimental photo series.</p>
-                    </a>
-                </div>
-            </div>
+        <div class="name-card">
+            <h1>Your Name</h1>
+            <p>Developer | Designer | Artist</p>
+            <nav class="social-links">
+                <a href="#" target="_blank">GitHub</a> | 
+                <a href="#" target="_blank">LinkedIn</a> | 
+                <a href="#" target="_blank">Contact</a>
+            </nav>
         </div>
-    </section>
 
-    <!-- Contact -->
-    <section id="contact">
-        <div class="container">
-            <h2>Contact</h2>
-            <div class="contact-links">
-                <a href="mailto:your.email@example.com">Email</a>
-                <a href="https://github.com/Mshah08-08">GitHub</a>
-                <a href="https://linkedin.com/in/yourprofile">LinkedIn</a>
-            </div>
-        </div>
-    </section>
+    </div>
 
-    <footer>
-        <p>© 2025 Manan Shah</p>
-    </footer>
-
-    <script src="js/script.js"></script>
+    <script src="js/script.js"></script> 
 </body>
 </html>

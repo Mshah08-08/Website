@@ -1,388 +1,281 @@
-/* Modal Styles */
-.modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0,0,0,0.35);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
-    transition: opacity 0.2s;
+/*
+    -------------------------------------------
+    1. GENERAL STYLES & TYPOGRAPHY
+    -------------------------------------------
+*/
+:root {
+    --left-bg-color: #f0f4f8; /* Light gray-blue for a clean, logical look */
+    --right-bg-color: #fff6ee; /* Soft cream/peach for a warm, creative look */
+    --left-text-color: #2c3e50;
+    --right-text-color: #9b59b6; /* Purple for creativity */
+    --accent-color: #3498db; /* Blue accent for professionalism */
+    --font-sans: 'Roboto', sans-serif;
+    --font-serif: 'Playfair Display', serif; /* Good for art titles */
+    --max-width: 1200px;
 }
-.modal.hidden {
-    display: none;
-}
-.modal-content {
-    background: #fff;
-    border-radius: 12px;
-    padding: 32px 28px 24px 28px;
-    max-width: 420px;
-    width: 90vw;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.12);
-    position: relative;
-    animation: fadeIn 0.3s ease;
-}
-.close-btn {
-    position: absolute;
-    top: 18px;
-    right: 18px;
-    font-size: 24px;
-    color: #888;
-    cursor: pointer;
-    transition: color 0.2s;
-}
-.close-btn:hover {
-    color: #333;
-}
-#modal-body {
-    margin-top: 10px;
-}
-@media (max-width: 600px) {
-    .modal-content {
-        padding: 18px 8px 12px 8px;
-        max-width: 98vw;
-    }
-    .close-btn {
-        top: 8px;
-        right: 8px;
-    }
-}
+
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    font-family: var(--font-sans);
     line-height: 1.6;
     color: #333;
-    background: #fff;
+    min-height: 100vh;
+    overflow-x: hidden;
 }
 
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 0 20px;
+h1, h2, h3 {
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
 }
 
-/* Collar/Header Styles */
-.collar {
-    background: #f8f8f8;
-    border-bottom: 1px solid #e0e0e0;
-    position: sticky;
-    top: 0;
-    z-index: 200;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+a {
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
-.collar-content {
+
+/*
+    -------------------------------------------
+    2. SPLIT-SCREEN LAYOUT
+    -------------------------------------------
+*/
+.split-container {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 18px 0 0 0;
+    min-height: 100vh;
+    width: 100%;
+    position: relative; /* Context for the floating name card */
 }
-.collar-left, .collar-right {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+
+.split-section {
+    flex: 1; /* Both sections take up equal width */
+    padding: 60px 40px;
+    overflow-y: auto; /* Allows scrolling within each section if content is long */
+    scroll-behavior: smooth;
 }
-.collar-center {
+
+.left-brain {
+    background-color: var(--left-bg-color);
+    color: var(--left-text-color);
+}
+
+.left-brain h1 {
+    color: var(--accent-color);
+}
+
+.left-brain a {
+    color: var(--accent-color);
+}
+
+.right-brain {
+    background-color: var(--right-bg-color);
+    color: var(--right-text-color);
+    /* Optional: Use a slightly different font for the creative side */
+    /* font-family: var(--font-serif); */
+}
+
+.right-brain h1 {
+    color: var(--right-text-color);
+}
+
+.right-brain a {
+    color: var(--right-text-color);
+}
+
+/*
+    -------------------------------------------
+    3. HEADER & NAME CARD
+    -------------------------------------------
+*/
+.section-header {
+    max-width: 450px;
+    margin-bottom: 3rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.section-header h2 {
+    font-size: 1rem;
+    letter-spacing: 0.2em;
+    opacity: 0.7;
+    margin-bottom: 0.5rem;
+}
+
+/* The name card is centered between the two sections */
+.name-card {
+    position: sticky; /* Keep it visible at the top while scrolling */
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    padding: 20px 30px;
     text-align: center;
-    flex: 1;
+    background: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    white-space: nowrap; /* Keep the text on one line if possible */
 }
-.collar .name {
-    font-size: 22px;
-    font-weight: 700;
+
+.name-card h1 {
+    font-size: 1.8rem;
+    margin: 0;
     color: #333;
-    text-decoration: none;
-    letter-spacing: 1px;
 }
-.tagline {
-    font-size: 14px;
-    color: #888;
-    margin-top: 2px;
+
+.name-card p {
     font-style: italic;
-}
-.brain-icon.left {
-    font-size: 22px;
-    color: #4a90e2;
-    filter: drop-shadow(0 1px 2px #b3d1f7);
-}
-.brain-icon.right {
-    font-size: 22px;
-    color: #e26a4a;
-    filter: drop-shadow(0 1px 2px #f7cbb3);
-}
-.collar-toggle {
-    background: #fff;
-    border: 1.5px solid #ddd;
-    padding: 8px 22px;
-    font-size: 15px;
-    cursor: pointer;
-    color: #666;
-    font-weight: 500;
-    border-radius: 20px;
-    transition: all 0.25s cubic-bezier(.4,0,.2,1);
-    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
-}
-.collar-toggle.active[data-side="left"] {
-    background: #4a90e2;
-    color: #fff;
-    border-color: #4a90e2;
-}
-.collar-toggle.active[data-side="right"] {
-    background: #e26a4a;
-    color: #fff;
-    border-color: #e26a4a;
-}
-.collar-toggle:hover {
-    border-color: #999;
-    color: #333;
-}
-
-/* Navigation */
-nav {
-    border-bottom: 1px solid #eee;
-    padding: 20px 0;
-    position: sticky;
-    top: 0;
-    background: #fff;
-    z-index: 100;
-}
-
-nav .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-nav .name {
-    font-weight: 600;
-    color: #333;
-    text-decoration: none;
-    font-size: 18px;
-}
-
-nav .links {
-    display: flex;
-    gap: 30px;
-}
-
-nav a {
-    color: #666;
-    text-decoration: none;
-    font-size: 15px;
-}
-
-nav a:hover {
-    color: #333;
-}
-
-/* Home Section */
-#home {
-    padding: 100px 0 80px;
-}
-
-#home h1 {
-    font-size: 36px;
-    font-weight: 600;
-    margin-bottom: 20px;
-    color: #333;
-}
-
-.intro {
-    font-size: 18px;
-    line-height: 1.7;
-    color: #666;
-    max-width: 600px;
-}
-
-/* Work Section */
-#work {
-    padding: 60px 0;
-    background: #fafafa;
-}
-
-/* Brain Toggle */
-/* Remove old brain-toggle styles, replaced by collar-toggle above */
-
-/* Brain Content */
-.brain-content {
-    display: block;
-    animation: fadeIn 0.3s ease;
-}
-
-.brain-content.hidden {
-    display: none;
-}
-
-/* Projects List */
-.projects {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-}
-
-.item {
-    background: #fff;
-    padding: 24px;
-    border-radius: 8px;
-    border: 1px solid #eee;
-}
-
-.item h3 {
-    font-size: 20px;
-    font-weight: 600;
-    color: #333;
-    margin-bottom: 8px;
-}
-
-.item p {
-    color: #666;
-    font-size: 15px;
-    line-height: 1.6;
+    color: #777;
     margin-bottom: 10px;
 }
 
-.item .year {
-    display: inline-block;
-    font-size: 13px;
-    color: #999;
+.social-links a {
+    margin: 0 5px;
+    color: #555;
 }
 
-/* Artwork Grid */
-.artwork {
+.social-links a:hover {
+    color: var(--accent-color);
+}
+
+
+/*
+    -------------------------------------------
+    4. CONTENT GRIDS (Projects & Art)
+    -------------------------------------------
+*/
+.content-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 24px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
 }
 
-.art-item {
-    background: #fff;
+.content-card {
+    background: white;
+    padding: 20px;
     border-radius: 8px;
-    overflow: hidden;
-    border: 1px solid #eee;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.art-img {
-    width: 100%;
-    height: 180px;
-    background: #f5f5f5;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.content-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
-.art-img img {
+.content-card img {
     width: 100%;
-    height: 100%;
+    height: 200px; /* Standard height for thumbnails/art previews */
     object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 15px;
 }
 
-.art-item h3 {
-    padding: 16px 16px 8px;
-    font-size: 16px;
-    font-weight: 600;
-    color: #333;
+/* Project Card Specifics */
+.project-card h3 {
+    margin-top: 0;
+    font-size: 1.2rem;
 }
 
-.art-item p {
-    padding: 0 16px 16px;
-    font-size: 14px;
-    color: #666;
+.tags {
+    display: block;
+    margin-top: 10px;
+    font-size: 0.8rem;
+    color: #777;
+    font-style: italic;
 }
 
-/* Contact Section */
-#contact {
-    padding: 60px 0;
+/* Art Card Specifics */
+.art-card {
+    padding: 0; /* Art should fill the card more */
+    overflow: hidden;
 }
 
-#contact h2 {
-    font-size: 24px;
-    font-weight: 600;
-    margin-bottom: 20px;
-    color: #333;
+.art-card img {
+    height: 250px; 
 }
 
-.contact-links {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
+.art-card figcaption {
+    padding: 15px 20px 20px;
 }
 
-.contact-links a {
-    color: #666;
-    text-decoration: none;
-    font-size: 15px;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 2px;
+.art-card p {
+    font-size: 0.9rem;
 }
 
-.contact-links a:hover {
-    color: #333;
-    border-bottom-color: #333;
-}
 
-/* Footer */
-footer {
-    border-top: 1px solid #eee;
-    padding: 30px 0;
+/*
+    -------------------------------------------
+    5. FOOTER & CTA
+    -------------------------------------------
+*/
+.contact-footer {
+    padding-top: 30px;
+    margin-top: 50px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
     text-align: center;
 }
 
-footer p {
-    color: #999;
-    font-size: 14px;
+.contact-footer a {
+    font-weight: 700;
+    font-size: 1.1rem;
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 2px solid;
 }
 
-/* Animations */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+.left-brain .contact-footer a {
+    border-color: var(--accent-color);
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .collar-content {
+.right-brain .contact-footer a {
+    border-color: var(--right-text-color);
+}
+
+.contact-footer a:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+
+/*
+    -------------------------------------------
+    6. RESPONSIVE DESIGN (for smaller screens)
+    -------------------------------------------
+*/
+@media (max-width: 900px) {
+    /* Stack the two sections vertically */
+    .split-container {
         flex-direction: column;
-        gap: 10px;
-        padding: 12px 0 0 0;
-    }
-    .collar-center {
-        margin-bottom: 6px;
-    }
-    .collar-left, .collar-right {
-        justify-content: center;
-    }
-    #home h1 {
-        font-size: 28px;
     }
 
-    .intro {
-        font-size: 16px;
+    .split-section {
+        min-height: auto; /* Allow height to be based on content */
+        padding: 40px 20px;
     }
 
-    nav .links {
-        gap: 20px;
+    /* Adjust the sticky name card for vertical layout */
+    .name-card {
+        position: static; /* No longer sticky on mobile */
+        transform: none;
+        left: auto;
+        top: auto;
+        width: 100%;
+        max-width: 100%;
+        border-radius: 0;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        padding: 15px 20px;
+        margin-bottom: 20px;
     }
 
-    .brain-toggle {
-        flex-direction: column;
-        align-items: stretch;
+    .name-card h1 {
+        font-size: 1.5rem;
     }
 
-    .artwork {
-        grid-template-columns: 1fr;
+    .content-grid {
+        /* Allow smaller minimum card width on small screens */
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     }
-}
-
-html {
-    scroll-behavior: smooth;
 }
