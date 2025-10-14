@@ -36,27 +36,27 @@
         #fractal-bg {
             background: #00000a; /* Deep dark base */
             background-image: 
-                /* Layer 1: Main Swirls - Increased prominence and gradient stop */
+                /* Layer 1: Main Swirls - FURTHER reduced opacity and adjusted gradient stops for subtlety */
                 repeating-radial-gradient(circle at center, 
-                    rgba(117, 121, 255, 0.35) 0%, /* Increased opacity */
-                    rgba(76, 81, 191, 0.5) 1.5%,   /* Increased opacity and stop */
-                    transparent 2%, /* Slightly larger transparent step */
+                    rgba(117, 121, 255, 0.15) 0%, /* Opacity reduced to 0.15 (was 0.25) */
+                    rgba(76, 81, 191, 0.25) 1.8%,   /* Opacity reduced to 0.25 (was 0.4) */
+                    transparent 2.5%, /* Increased stop for softer transition */
                     transparent 15% 
                 ),
-                /* Layer 2: Top-right offset swirls - Increased prominence */
+                /* Layer 2: Top-right offset swirls - FURTHER reduced opacity and increased spread */
                 repeating-radial-gradient(circle at 100% 0%, 
-                    rgba(76, 81, 191, 0.6) 0%, /* Increased opacity */
-                    transparent 12% 
+                    rgba(76, 81, 191, 0.20) 0%, /* Opacity reduced to 0.20 (was 0.4) */
+                    transparent 15% /* Increased gradient spread (was 12%) */
                 ),
-                /* Large, subtle, swirling pattern for flow (Right Side) - Increased prominence */
+                /* Large, subtle, swirling pattern for flow (Right Side) - FURTHER reduced opacity and increased spread */
                 radial-gradient(ellipse at 80% 60%, 
-                    rgba(76, 81, 191, 0.7) 0%, /* Increased opacity */
-                    transparent 30%
+                    rgba(76, 81, 191, 0.35) 0%, /* Opacity reduced to 0.35 (was 0.5) */
+                    transparent 40% /* Increased gradient spread (was 30%) */
                 ),
-                /* Large, subtle, swirling pattern for flow (Left Side) */
+                /* Large, subtle, swirling pattern for flow (Left Side) - FURTHER reduced opacity and increased spread */
                 radial-gradient(circle at 20% 40%, 
-                    rgba(76, 81, 191, 0.4) 0%, 
-                    transparent 30%
+                    rgba(76, 81, 191, 0.15) 0%, /* Opacity reduced to 0.15 (was 0.3) */
+                    transparent 40% /* Increased gradient spread (was 30%) */
                 ),
                 /* Deepest Base Layer */
                 linear-gradient(135deg, rgba(3, 3, 30, 1) 0%, rgba(0, 0, 0, 1) 100%);
@@ -75,6 +75,7 @@
         /* 2. LAYOUT & SCROLLING */
         /* ---------------------------------------------------- */
         .content-wrapper {
+            /* Adjusted padding-top slightly since headers were removed from views */
             padding-top: 180px; 
             padding-bottom: 40px;
         }
@@ -192,7 +193,8 @@
         
         <!-- 1. HOMEPAGE VIEW -->
         <section id="homepage-view" class="min-h-screen pt-24 pb-12 flex flex-col justify-center items-center text-center">
-            <div class="w-full max-w-4xl p-10 bg-black/30 backdrop-blur-md rounded-xl shadow-2xl border border-white/10 content-filter">
+            <!-- UPDATED OPACITY HERE: bg-black/20 -->
+            <div class="w-full max-w-4xl p-10 bg-black/20 backdrop-blur-md rounded-xl shadow-2xl border border-white/10 content-filter">
                 
                 <!-- About Me Content -->
                 <h3 class="text-3xl font-extrabold text-brand-blue mb-4 tracking-tight">
@@ -220,7 +222,8 @@
 
         <!-- 2. LEFT BRAIN VIEW (Projects) -->
         <section id="left-brain-view" class="hidden">
-            <div class="p-6 lg:p-10 bg-black/30 backdrop-blur-md rounded-xl border border-white/10 content-filter">
+            <!-- UPDATED OPACITY HERE: bg-black/20 -->
+            <div class="p-6 lg:p-10 bg-black/20 backdrop-blur-md rounded-xl border border-white/10 content-filter">
                 
                 <!-- Projects Grid (3 per row) -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -335,7 +338,8 @@
 
         <!-- 3. RIGHT BRAIN VIEW (Art) -->
         <section id="right-brain-view" class="hidden">
-            <div class="p-6 lg:p-10 bg-black/30 backdrop-blur-md rounded-xl border border-white/10 content-filter">
+            <!-- UPDATED OPACITY HERE: bg-black/20 -->
+            <div class="p-6 lg:p-10 bg-black/20 backdrop-blur-md rounded-xl border border-white/10 content-filter">
                 
                 <!-- Art Grid (2 per row on large screens) -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
@@ -372,7 +376,8 @@
 
         <!-- 4. CONTACT VIEW -->
         <section id="contact-view" class="hidden min-h-screen pt-12 pb-12 flex flex-col justify-center items-center text-center">
-            <div class="w-full max-w-3xl p-6 lg:p-10 bg-black/30 backdrop-blur-md rounded-xl border border-white/10 content-filter">
+            <!-- UPDATED OPACITY HERE: bg-black/20 -->
+            <div class="w-full max-w-3xl p-6 lg:p-10 bg-black/20 backdrop-blur-md rounded-xl border border-white/10 content-filter">
                 <header class="mb-8 text-center">
                     <h2 class="text-3xl font-extrabold text-brand-blue tracking-wider">GET IN TOUCH</h2>
                     
