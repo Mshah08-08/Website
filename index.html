@@ -154,6 +154,82 @@
         input::placeholder, textarea::placeholder {
             color: #9ca3af;
         }
+
+        /* ---------------------------------------------------- */
+        /* 5. GALLERY STYLES */
+        /* ---------------------------------------------------- */
+        .gallery-image-placeholder {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #4a5568;
+            font-size: 18px;
+            font-weight: 600;
+            border: 2px dashed #4a5568;
+            margin-bottom: 20px;
+        }
+
+        .gallery-description {
+            background: rgba(76, 81, 191, 0.1);
+            border-left: 4px solid #7579ff;
+            padding: 15px 20px;
+            margin-bottom: 30px;
+            border-radius: 4px;
+        }
+
+        .gallery-container {
+            position: relative;
+        }
+
+        .gallery-nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(76, 81, 191, 0.9);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            z-index: 10;
+        }
+
+        .gallery-nav-btn:hover {
+            background: rgba(117, 121, 255, 1);
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 0 20px rgba(117, 121, 255, 0.6);
+        }
+
+        .gallery-nav-btn.left {
+            left: 15px;
+        }
+
+        .gallery-nav-btn.right {
+            right: 15px;
+        }
+
+        .gallery-counter {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+        }
     </style>
 </head>
 <body id="fractal-bg" class="font-sans antialiased text-text-light">
@@ -289,10 +365,7 @@
                     </a>
 
                     <!-- Project Card 4: Custom Battery Pack 4 -->
-                    <a href="#" onclick="openProjectDetail(
-                        'Machine Learning Model', 
-                        '<p>A deep learning model developed in Python using TensorFlow to classify astronomical images. I focused on data preprocessing pipelines and optimizing the neural network architecture for speed on limited hardware. The resulting model achieved high accuracy on a custom dataset.</p><p>Skills demonstrated include data science, Python programming, and model deployment.</p>'
-                    ); return false;" class="project-link-wrapper">
+                    <a href="#" onclick="openBatteryProjectDetail(); return false;" class="project-link-wrapper">
                         <article class="bg-black/20 backdrop-blur-sm rounded-lg shadow-xl border border-white/10 p-3 transition duration-300 hover:shadow-brand-blue/50 cursor-pointer h-full">
                             <img class="card-image mb-3" src="images/project-thumb-4.jpg" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=Placeholder+AI'" alt="AI Model Screenshot">
                             <div class="p-1">
@@ -684,6 +757,145 @@
                 closeProjectDetail();
             }
         });
+
+        /**
+         * Gallery state for the battery project
+         */
+        let currentGalleryIndex = 0;
+        const totalGalleryImages = 5; // Total number of images in the gallery
+
+        /**
+         * Opens the battery project detail with gallery functionality
+         */
+        function openBatteryProjectDetail() {
+            const title = 'Custom Li-ion Battery System (72V/49A)';
+            const bodyHtml = `
+                <!-- Step 1: Planning & Design -->
+                <div class="mb-8">
+                    <div class="gallery-image-placeholder">
+                        Image 1: Planning & Design
+                    </div>
+                    <div class="gallery-description">
+                        <h4 class="text-xl font-bold text-brand-accent mb-2">Step 1: Planning & Design</h4>
+                        <p class="text-gray-300">
+                            This phase involved careful planning of the battery system specifications,
+                            including voltage requirements (72V), capacity calculations (49A), and safety considerations.
+                            Circuit diagrams and CAD models were created to ensure proper component placement
+                            and thermal management strategies.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 2: Assembly Process -->
+                <div class="mb-8">
+                    <div class="gallery-image-placeholder">
+                        Image 2: Assembly Process
+                    </div>
+                    <div class="gallery-description">
+                        <h4 class="text-xl font-bold text-brand-accent mb-2">Step 2: Assembly Process</h4>
+                        <p class="text-gray-300">
+                            The assembly process required precise soldering of cell connections,
+                            integration of the Battery Management System (BMS), and installation of
+                            protection circuits. Each cell was tested for voltage consistency before
+                            being incorporated into the pack.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 3: Gallery (with navigation) -->
+                <div class="mb-8">
+                    <div class="gallery-container">
+                        <div class="gallery-image-placeholder" id="gallery-main-image">
+                            Image 3: Gallery View
+                        </div>
+                        <button class="gallery-nav-btn left" onclick="event.stopPropagation(); navigateGallery(-1)">
+                            &#8249;
+                        </button>
+                        <button class="gallery-nav-btn right" onclick="event.stopPropagation(); navigateGallery(1)">
+                            &#8250;
+                        </button>
+                        <div class="gallery-counter" id="gallery-counter">
+                            1 / ${totalGalleryImages}
+                        </div>
+                    </div>
+                    <div class="gallery-description">
+                        <h4 class="text-xl font-bold text-brand-accent mb-2">Step 3: Testing & Results Gallery</h4>
+                        <p class="text-gray-300" id="gallery-description">
+                            This gallery showcases the final testing phase, thermal imaging results,
+                            performance benchmarks, and the completed battery system in various configurations.
+                            Use the left and right arrows to browse through all test results and final photos.
+                        </p>
+                    </div>
+                </div>
+            `;
+
+            // Reset gallery index
+            currentGalleryIndex = 0;
+
+            // Set content and open modal
+            document.getElementById('modal-title').textContent = title;
+            document.getElementById('modal-body').innerHTML = bodyHtml;
+            document.getElementById('project-modal-overlay').classList.add('open');
+            document.body.style.overflow = 'hidden';
+
+            // Update the gallery counter
+            updateGalleryDisplay();
+        }
+
+        /**
+         * Navigate through the gallery images
+         * @param {number} direction - -1 for previous, 1 for next
+         */
+        function navigateGallery(direction) {
+            currentGalleryIndex += direction;
+
+            // Loop around if at the boundaries
+            if (currentGalleryIndex < 0) {
+                currentGalleryIndex = totalGalleryImages - 1;
+            } else if (currentGalleryIndex >= totalGalleryImages) {
+                currentGalleryIndex = 0;
+            }
+
+            updateGalleryDisplay();
+        }
+
+        /**
+         * Update the gallery display with current index
+         */
+        function updateGalleryDisplay() {
+            const galleryImage = document.getElementById('gallery-main-image');
+            const galleryCounter = document.getElementById('gallery-counter');
+            const galleryDescription = document.getElementById('gallery-description');
+
+            // Update counter
+            if (galleryCounter) {
+                galleryCounter.textContent = `${currentGalleryIndex + 1} / ${totalGalleryImages}`;
+            }
+
+            // Update image placeholder text
+            if (galleryImage) {
+                const imageLabels = [
+                    'Testing Setup View',
+                    'Thermal Performance Results',
+                    'BMS Integration Details',
+                    'Final Assembly Front View',
+                    'Final Assembly Side View'
+                ];
+                galleryImage.textContent = `Gallery Image ${currentGalleryIndex + 1}: ${imageLabels[currentGalleryIndex]}`;
+            }
+
+            // Update description based on current image
+            if (galleryDescription) {
+                const descriptions = [
+                    'Testing setup showing the battery pack connected to load testing equipment and monitoring systems to verify performance under various conditions.',
+                    'Thermal imaging results demonstrating even heat distribution across the battery pack during high-load scenarios, validating the thermal management design.',
+                    'Detailed view of the Battery Management System (BMS) integration, showing the connection points and protection circuitry.',
+                    'Front view of the completed battery system, showcasing the professional assembly and protective casing.',
+                    'Side profile of the battery pack highlighting the modular design and accessible connection points for maintenance.'
+                ];
+                galleryDescription.textContent = descriptions[currentGalleryIndex];
+            }
+        }
     </script>
 </body>
 </html>
