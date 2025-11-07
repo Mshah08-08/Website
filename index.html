@@ -181,6 +181,46 @@
             border-radius: 4px;
         }
 
+        /* Side-by-side layout for image and text */
+        .gallery-row {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .gallery-row.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .gallery-row .gallery-image-placeholder {
+            flex: 0 0 50%;
+            height: 350px;
+            margin-bottom: 0;
+        }
+
+        .gallery-row .gallery-description {
+            flex: 0 0 calc(50% - 30px);
+            margin-bottom: 0;
+        }
+
+        /* Responsive: Stack on smaller screens */
+        @media (max-width: 768px) {
+            .gallery-row {
+                flex-direction: column !important;
+            }
+
+            .gallery-row .gallery-image-placeholder,
+            .gallery-row .gallery-description {
+                flex: 0 0 100%;
+                width: 100%;
+            }
+
+            .gallery-row .gallery-image-placeholder {
+                margin-bottom: 20px;
+            }
+        }
+
         .gallery-container {
             position: relative;
         }
@@ -770,8 +810,8 @@
         function openBatteryProjectDetail() {
             const title = 'Custom Li-ion Battery System (72V/49A)';
             const bodyHtml = `
-                <!-- Step 1: Planning & Design -->
-                <div class="mb-8">
+                <!-- Step 1: Planning & Design (Image Left, Text Right) -->
+                <div class="gallery-row">
                     <div class="gallery-image-placeholder">
                         Image 1: Planning & Design
                     </div>
@@ -786,8 +826,8 @@
                     </div>
                 </div>
 
-                <!-- Step 2: Assembly Process -->
-                <div class="mb-8">
+                <!-- Step 2: Assembly Process (Image Right, Text Left) -->
+                <div class="gallery-row reverse">
                     <div class="gallery-image-placeholder">
                         Image 2: Assembly Process
                     </div>
