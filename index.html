@@ -3,13 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manan Shah | Dual Portfolio</title>
+    <title>Manan Shah | Portfolio</title>
     
     <!-- Canonical link for your domain -->
     <link rel="canonical" href="https://mshah8.com/">
 
     <!-- Load Tailwind CSS CDN for styling -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Three.js for 3D CAD Viewer -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/STLLoader.js"></script>
     
     <!-- Custom Tailwind Configuration -->
     <script>
@@ -230,6 +235,57 @@
             font-size: 14px;
             font-weight: 600;
         }
+
+        /* ---------------------------------------------------- */
+        /* 6. PROJECT DETAIL SECTION STYLES */
+        /* ---------------------------------------------------- */
+        .project-section {
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid rgba(117, 121, 255, 0.2);
+        }
+
+        .project-section:last-child {
+            border-bottom: none;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #7579ff;
+            margin-bottom: 15px;
+        }
+
+        .section-content {
+            color: #d1d5db;
+            line-height: 1.8;
+        }
+
+        .image-placeholder {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6b7280;
+            font-size: 16px;
+            font-weight: 500;
+            border: 2px dashed #4a5568;
+            margin: 20px 0;
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .image-grid .image-placeholder {
+            height: 200px;
+        }
     </style>
 </head>
 <body id="fractal-bg" class="font-sans antialiased text-text-light">
@@ -242,8 +298,8 @@
         
         <!-- TOP ROW: Profile and Name (Clickable Home Link) -->
         <header class="flex justify-between items-center p-3 lg:p-4 border-b border-white/10">
-            <!-- Link: Clicking the name/image goes to home -->
-            <a href="#" onclick="showSection('home'); return false;" class="flex items-center space-x-3 group cursor-pointer">
+            <!-- Link: Clicking the name/image goes to left brain -->
+            <a href="#" onclick="showSection('left'); return false;" class="flex items-center space-x-3 group cursor-pointer">
                 <!-- Profile Picture Placeholder -->
                 <img src="images/profile.jpg" alt="Manan Shah Profile" 
                      class="w-10 h-10 rounded-full border-2 border-brand-blue object-cover transition-colors duration-300 group-hover:border-brand-accent">
@@ -280,49 +336,18 @@
     <!-- Reduced padding here -->
     <!-- ---------------------------------------------------- -->
     <main class="p-4 lg:p-6 max-w-7xl mx-auto">
-        
-        <!-- 1. HOMEPAGE VIEW (Reduced vertical padding) -->
-        <section id="homepage-view" class="min-h-screen pt-16 pb-8 flex flex-col justify-center items-center text-center">
-            <div class="w-full max-w-3xl p-6 bg-black/20 backdrop-blur-md rounded-xl shadow-2xl border border-white/10 content-filter">
-                
-                <!-- About Me Content -->
-                <h3 class="text-2xl font-extrabold text-brand-blue mb-3 tracking-tight">
-                    Hello! I'm Manan.
-                </h3>
-                <p class="text-base text-gray-300 mb-4">
-                    I'm a builder and a thinker who loves solving problems, whether it's optimizing a complex system with clean code or designing something entirely new. I'm passionate about **aerospace engineering**, **high-performance computing**, and the **creative design process**. This site is a showcase of both sides of my brain.
-                </p>
-                
-                <hr class="border-white/10 my-4">
 
-                <!-- Existing Welcome Content -->
-                <p class="text-lg font-serif italic text-brand-accent mb-3">Welcome to my Dual Portfolio.</p>
-                <h2 class="text-5xl lg:text-7xl font-extrabold text-white mb-4 tracking-tight">
-                    Logic Meets Creativity
-                </h2>
-                <p class="text-lg text-gray-300 mb-6">
-                    I believe the best work happens at the intersection of rigorous **analytical thinking** and **unbound creative expression**.
-                </p>
-                <p class="text-sm text-gray-400">
-                    Select a button above to explore my technical projects or my artistic gallery.
-                </p>
-            </div>
-        </section>
-
-        <!-- 2. LEFT BRAIN VIEW (Projects) - Reduced Header Clearance and padding -->
-        <section id="left-brain-view" class="hidden pt-36">
+        <!-- LEFT BRAIN VIEW (Projects) - Reduced Header Clearance and padding -->
+        <section id="left-brain-view" class="pt-36">
             <div class="px-4 lg:px-6 py-4 lg:py-6 bg-black/20 backdrop-blur-md rounded-xl border border-white/10 content-filter">
                 
                 <!-- Projects Grid (Reduced gap) -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     
                     <!-- Project Card 1: TVC Rocket -->
-                    <a href="#" onclick="openProjectDetail(
-                        'TVC Rocket', 
-                        '<p>This project involved designing, sourcing, and meticulously assembling a high-end personal computer system. Key work included BIOS tuning, aggressive thermal management, and deep operating system optimization to ensure maximum performance and stability for demanding applications like CAD and simulation.</p><p>It\'s a demonstration of practical hardware knowledge and systematic performance tuning.</p>'
-                    ); return false;" class="project-link-wrapper">
+                    <a href="#" onclick="openTVCRocketDetail(); return false;" class="project-link-wrapper">
                         <article class="bg-black/20 backdrop-blur-sm rounded-lg shadow-xl border border-white/10 p-3 transition duration-300 hover:shadow-brand-blue/50 cursor-pointer h-full">
-                            <img class="card-image mb-3" src="images/pc-build-thumb.jpg" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=PC+Build'" alt="PC Build Screenshot">
+                            <img class="card-image mb-3" src="images/tvc-rocket-thumb.jpg" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=TVC+Rocket+(Ascent)'" alt="TVC Rocket Ascent">
                             <div class="p-1">
                                 <h3 class="text-xl font-semibold text-white">TVC Rocket (Ascent)</h3>
                                 <div class="mt-2 space-x-2">
@@ -334,7 +359,7 @@
 
                     <!-- Project Card 2: Auto Fin Stabilization Rocket Mount -->
                     <a href="#" onclick="openProjectDetail(
-                        'Rocket Mount Design (CAD)', 
+                        'Auto Fin Stabilization Rocket Mount', 
                         '<p>A structural design project focused on creating a lightweight yet robust engine mount for a hybrid rocket. This involved finite element analysis (FEA) in SolidWorks to test stress tolerance under various load conditions, optimizing the geometry for 3D printing in composite materials.</p><p>It showcases skills in CAD modeling, simulation, and material science application.</p>'
                     ); return false;" class="project-link-wrapper">
                         <article class="bg-black/20 backdrop-blur-sm rounded-lg shadow-xl border border-white/10 p-3 transition duration-300 hover:shadow-brand-blue/50 cursor-pointer h-full">
@@ -349,14 +374,11 @@
                     </a>
                     
                     <!-- Project Card 3: Gokart -->
-                    <a href="#" onclick="openProjectDetail(
-                        'TVC Rocket Stabilization', 
-                        '<p>Developed the guidance and control system for a model rocket using Thrust Vector Control (TVC). The core achievement was implementing a Proportional-Integral-Derivative (PID) control loop on an Arduino platform to maintain stable flight despite disturbances. This required precise sensor fusion and real-time computation.</p><p>A strong example of embedded systems programming and control theory.</p>'
-                    ); return false;" class="project-link-wrapper">
+                    <a href="#" onclick="openGokartDetail(); return false;" class="project-link-wrapper">
                         <article class="bg-black/20 backdrop-blur-sm rounded-lg shadow-xl border border-white/10 p-3 transition duration-300 hover:shadow-brand-blue/50 cursor-pointer h-full">
-                            <img class="card-image mb-3" src="images/tvc-rocket-thumb.jpg" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=TVC+Rocket'" alt="TVC Rocket Control">
+                            <img class="card-image mb-3" src="images/gokart-thumb.jpg" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=Gokart'" alt="Gokart">
                             <div class="p-1">
-                                <h3 class="text-xl font-semibold text-white">Gokart</h3>
+                                <h3 class="text-xl font-semibold text-white">Electric Go-Kart</h3>
                                 <div class="mt-2 space-x-2">
                                     <span class="inline-block bg-brand-blue text-white text-xs font-medium px-2 py-0.5 rounded-full">Winter-Spring 2024</span>
                                 </div>
@@ -367,7 +389,7 @@
                     <!-- Project Card 4: Custom Battery Pack 4 -->
                     <a href="#" onclick="openBatteryProjectDetail(); return false;" class="project-link-wrapper">
                         <article class="bg-black/20 backdrop-blur-sm rounded-lg shadow-xl border border-white/10 p-3 transition duration-300 hover:shadow-brand-blue/50 cursor-pointer h-full">
-                            <img class="card-image mb-3" src="images/project-thumb-4.jpg" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=Placeholder+AI'" alt="AI Model Screenshot">
+                            <img class="card-image mb-3" src="images/project-thumb-4.jpg" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=Battery+Pack'" alt="Battery Pack">
                             <div class="p-1">
                                 <h3 class="text-xl font-semibold text-white">Custom Li-ion Battery System (72V/49A)</h3>
                                 <div class="mt-2 space-x-2">
@@ -379,11 +401,11 @@
                     
                     <!-- Project Card 5: Autonomous Car -->
                     <a href="#" onclick="openProjectDetail(
-                        'E-commerce Backend', 
+                        'Neural Network Autonomous Car', 
                         '<p>Designed and implemented the core backend services for a fictional small e-commerce platform using Django and PostgreSQL. This project covered user authentication, inventory management, and secure order processing. The focus was on scalability and clean API design.</p><p>Demonstrates proficiency in web framework development and database management.</p>'
                     ); return false;" class="project-link-wrapper">
                         <article class="bg-black/20 backdrop-blur-sm rounded-lg shadow-xl border border-white/10 p-3 transition duration-300 hover:shadow-brand-blue/50 cursor-pointer h-full">
-                            <img class="card-image mb-3" src="images/project-thumb-5.jpg" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=Placeholder+Web'" alt="Web Dev Project">
+                            <img class="card-image mb-3" src="images/project-thumb-5.jpg" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=Autonomous+Car'" alt="Autonomous Car">
                             <div class="p-1">
                                 <h3 class="text-xl font-semibold text-white">Neural Network Autonomous Car</h3>
                                 <div class="mt-2 space-x-2">
@@ -397,11 +419,11 @@
                     
                     <!-- Project Card 6: RC Plane -->
                     <a href="#" onclick="openProjectDetail(
-                        'Simple Game Engine', 
+                        'RC Plane', 
                         '<p>Built a basic 2D game engine prototype in Java to understand graphics rendering pipelines and game loop mechanics. Features included scene management, a basic physics system for collisions, and user input handling.</p><p>This project solidified foundational knowledge in object-oriented programming and software architecture.</p>'
                     ); return false;" class="project-link-wrapper">
                         <article class="bg-black/20 backdrop-blur-sm rounded-lg shadow-xl border border-white/10 p-3 transition duration-300 hover:shadow-brand-blue/50 cursor-pointer h-full">
-                            <img class="card-image mb-3" src="images/project-thumb-6.jpg" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=Placeholder+Engine'" alt="Game Engine screenshot">
+                            <img class="card-image mb-3" src="images/project-thumb-6.jpg" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=RC+Plane'" alt="RC Plane">
                             <div class="p-1">
                                 <h3 class="text-xl font-semibold text-white">RC Plane</h3>
                                 <div class="mt-2 space-x-2">
@@ -413,11 +435,11 @@
 
                     <!-- Project Card 7: Rc Boat -->
                     <a href="#" onclick="openProjectDetail(
-                        'Template Project 7: Robotics Control', 
-                        '<p>This is a placeholder description for Template Project 7. It focuses on the development of a complex multi-axis robotics control algorithm written in C++ for industrial applications. Key concepts involved advanced kinematics and real-time path planning.</p>'
+                        'RC Boat', 
+                        '<p>This is a placeholder description for the RC Boat project. It focuses on the development of a remote-controlled watercraft with custom electronics and hull design.</p>'
                     ); return false;" class="project-link-wrapper">
                         <article class="bg-black/20 backdrop-blur-sm rounded-lg shadow-xl border border-white/10 p-3 transition duration-300 hover:shadow-brand-blue/50 cursor-pointer h-full">
-                            <img class="card-image mb-3" src="images/project-thumb-7.jpg" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=Project+7'" alt="Robotics Control Placeholder">
+                            <img class="card-image mb-3" src="images/project-thumb-7.jpg" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=RC+Boat'" alt="RC Boat">
                             <div class="p-1">
                                 <h3 class="text-xl font-semibold text-white">RC Boat</h3>
                                 <div class="mt-2 space-x-2">
@@ -429,11 +451,11 @@
 
                     <!-- Project Card 8: Custom Pcs -->
                     <a href="#" onclick="openProjectDetail(
-                        'Template Project 8: CFD Analysis', 
-                        '<p>This is a placeholder description for Template Project 8. It involved running Computational Fluid Dynamics (CFD) simulations on various airfoil shapes to study lift-to-drag ratios. The goal was to optimize aerodynamic efficiency for a drone wing.</p>'
+                        'Custom PCs', 
+                        '<p>This is a placeholder description for Custom PC builds. It involved selecting components, assembling systems, and optimizing performance for various use cases.</p>'
                     ); return false;" class="project-link-wrapper">
                         <article class="bg-black/20 backdrop-blur-sm rounded-lg shadow-xl border border-white/10 p-3 transition duration-300 hover:shadow-brand-blue/50 cursor-pointer h-full">
-                            <img class="card-image mb-3" src="images/project-thumb-8.jpg" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=Project+8'" alt="CFD Simulation Placeholder">
+                            <img class="card-image mb-3" src="images/project-thumb-8.jpg" onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=Custom+PCs'" alt="Custom PCs">
                             <div class="p-1">
                                 <h3 class="text-xl font-semibold text-white">Custom PCs</h3>
                                 <div class="mt-2 space-x-2">
@@ -463,7 +485,7 @@
         </section> <!-- END of Left Brain View -->
 
 
-        <!-- 3. RIGHT BRAIN VIEW (Artistic/Creative Content) - UPDATED WITH MORE SPACING -->
+        <!-- RIGHT BRAIN VIEW (Artistic/Creative Content) - UPDATED WITH MORE SPACING -->
         <section id="right-brain-view" class="hidden pt-36">
             <div class="px-4 lg:px-6 py-4 lg:py-6 bg-black/20 backdrop-blur-md rounded-xl border border-white/10 content-filter">
                 
@@ -574,8 +596,8 @@
         </section> <!-- END of Right Brain View -->
         
 
-        <!-- 4. CONTACT SECTION (Reduced padding and max-width) -->
-        <section id="contact-view" class="hidden min-h-screen pt-16 pb-8 flex flex-col justify-center items-center text-center">
+        <!-- CONTACT SECTION (Reduced padding and max-width) -->
+        <section id="contact-view" class="hidden min-h-screen pt-36 pb-8 flex flex-col justify-center items-center text-center">
              <div class="w-full max-w-sm p-6 bg-black/20 backdrop-blur-md rounded-xl shadow-2xl border border-white/10 content-filter">
                 
                 <!-- LinkedIn Link (KEPT) -->
@@ -637,7 +659,7 @@
                 &times;
             </button>
             
-            <h2 id="modal-title" class="text-4xl font-extrabold text-brand-accent mb-4 border-b border-brand-accent/50 pb-2">Project Title</h2>
+            <h2 id="modal-title" class="text-4xl font-extrabold text-brand-accent mb-8 border-b border-brand-accent/50 pb-4">Project Title</h2>
             
             <div id="modal-body" class="text-lg text-gray-300 mb-6 space-y-4">
                 <!-- Content injected by JavaScript -->
@@ -652,28 +674,27 @@
     <!-- ---------------------------------------------------- -->
     <script>
         document.addEventListener('DOMContentLoaded', (event) => {
-            // Initial view state is 'home'
-            showSection('home');
+            // Initial view state is 'left' (Left Brain) - NO MORE HOME PAGE
+            showSection('left');
         });
 
         // Tracks the currently visible section
-        let currentSection = 'home';
+        let currentSection = 'left';
 
         /**
          * Hides all main sections and shows the requested one.
-         * @param {string} sectionId - 'home', 'left', 'right', or 'contact'
+         * @param {string} sectionId - 'left', 'right', or 'contact'
          */
         function showSection(sectionId) {
             // Map the simple IDs to the actual DOM IDs
             const viewMap = {
-                'home': 'homepage-view',
                 'left': 'left-brain-view',
                 'right': 'right-brain-view',
                 'contact': 'contact-view'
             };
             
             // Get all sections
-            const allSections = ['homepage-view', 'left-brain-view', 'right-brain-view', 'contact-view'];
+            const allSections = ['left-brain-view', 'right-brain-view', 'contact-view'];
             
             // Hide all
             allSections.forEach(id => {
@@ -691,14 +712,8 @@
                 // Update button styles
                 updateButtonStyles(sectionId);
 
-                // Scroll to the top of the main content area gracefully, 
-                // but only if we are moving away from the home screen.
-                if (sectionId !== 'home') {
-                    // Scroll to the main content wrapper (which has the padding)
-                    document.querySelector('main').scrollIntoView({ behavior: 'smooth' });
-                } else {
-                     window.scrollTo({ top: 0, behavior: 'smooth' });
-                }
+                // Scroll to top
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             }
         }
 
@@ -759,78 +774,157 @@
         });
 
         /**
-         * Gallery state for the battery project
+         * TVC Rocket gallery state
          */
-        let currentGalleryIndex = 0;
-        const totalGalleryImages = 5; // Total number of images in the gallery
+        let tvcGalleryIndex = 0;
+        const tvcGalleryImages = [
+            { src: 'images/tvc/overview-1.jpg', alt: 'TVC Rocket Overview 1', caption: 'Main rocket assembly view' },
+            { src: 'images/tvc/overview-2.jpg', alt: 'TVC Rocket Overview 2', caption: 'Gimbal mount detail' },
+            { src: 'images/tvc/overview-3.jpg', alt: 'TVC Rocket Overview 3', caption: 'Flight computer integration' },
+            { src: 'images/tvc/overview-4.jpg', alt: 'TVC Rocket Overview 4', caption: 'Full system assembled' },
+            { src: 'images/tvc/overview-5.jpg', alt: 'TVC Rocket Overview 5', caption: 'Launch preparation' }
+        ];
+
+        function navigateTVCGallery(direction) {
+            tvcGalleryIndex += direction;
+            if (tvcGalleryIndex < 0) tvcGalleryIndex = tvcGalleryImages.length - 1;
+            if (tvcGalleryIndex >= tvcGalleryImages.length) tvcGalleryIndex = 0;
+            updateTVCGallery();
+        }
+
+        function updateTVCGallery() {
+            const img = document.getElementById('tvc-gallery-img');
+            const counter = document.getElementById('tvc-gallery-counter');
+            
+            if (img) {
+                img.src = tvcGalleryImages[tvcGalleryIndex].src;
+                img.alt = tvcGalleryImages[tvcGalleryIndex].alt;
+                img.onerror = function() {
+                    this.onerror = null;
+                    this.src = `https://placehold.co/800x500/1e293b/ffffff?text=Image+${tvcGalleryIndex + 1}`;
+                };
+            }
+            if (counter) {
+                counter.textContent = `${tvcGalleryIndex + 1} / ${tvcGalleryImages.length}`;
+            }
+        }
 
         /**
-         * Opens the battery project detail with gallery functionality
+         * Opens the TVC Rocket (Ascent) project detail with sections for explanation and image placeholders
          */
-        function openBatteryProjectDetail() {
-            const title = 'Custom Li-ion Battery System (72V/49A)';
+        function openTVCRocketDetail() {
+            tvcGalleryIndex = 0; // Reset gallery index
+            const title = 'TVC Rocket (Ascent)';
             const bodyHtml = `
-                <!-- Step 1: Planning & Design -->
-                <div class="mb-8">
-                    <div class="gallery-image-placeholder">
-                        Image 1: Planning & Design
+                <!-- Project Overview Section -->
+                <div class="project-section" style="padding-top: 20px;">
+                    <h3 class="section-title" style="margin-bottom: 20px;">Project Overview</h3>
+                    
+                    <div class="section-content" style="margin-bottom: 30px;">
+                        <p>This project explores active flight stabilization in a model rocket using thrust vector control, a technique used in modern launch vehicles to actively steer thrust. It uses a custom two-axis gimbaled motor mount driven by independent pitch and yaw servos to steer thrust in real time. Flight behavior and control logic were modeled in Simulink, with aerodynamic and motor characteristics validated in OpenRocket. An ESP32-based flight computer fuses data from an IMU, external magnetometer, and barometer to estimate orientation and flight state, then commands corrective thrust to maintain stability.</p>
                     </div>
-                    <div class="gallery-description">
-                        <h4 class="text-xl font-bold text-brand-accent mb-2">Step 1: Planning & Design</h4>
-                        <p class="text-gray-300">
-                            This phase involved careful planning of the battery system specifications,
-                            including voltage requirements (72V), capacity calculations (49A), and safety considerations.
-                            Circuit diagrams and CAD models were created to ensure proper component placement
-                            and thermal management strategies.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Step 2: Assembly Process -->
-                <div class="mb-8">
-                    <div class="gallery-image-placeholder">
-                        Image 2: Assembly Process
-                    </div>
-                    <div class="gallery-description">
-                        <h4 class="text-xl font-bold text-brand-accent mb-2">Step 2: Assembly Process</h4>
-                        <p class="text-gray-300">
-                            The assembly process required precise soldering of cell connections,
-                            integration of the Battery Management System (BMS), and installation of
-                            protection circuits. Each cell was tested for voltage consistency before
-                            being incorporated into the pack.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Step 3: Gallery (with navigation) -->
-                <div class="mb-8">
-                    <div class="gallery-container">
-                        <div class="gallery-image-placeholder" id="gallery-main-image">
-                            Image 3: Gallery View
-                        </div>
-                        <button class="gallery-nav-btn left" onclick="event.stopPropagation(); navigateGallery(-1)">
+                    
+                    <!-- Image Gallery with Navigation -->
+                    <div class="gallery-container" style="margin-bottom: 20px;">
+                        <img id="tvc-gallery-img" 
+                             class="w-full h-[400px] object-cover rounded-lg" 
+                             src="${tvcGalleryImages[0].src}" 
+                             alt="${tvcGalleryImages[0].alt}"
+                             onerror="this.onerror=null; this.src='https://placehold.co/800x500/1e293b/ffffff?text=Image+1';">
+                        
+                        <button class="gallery-nav-btn left" onclick="event.stopPropagation(); navigateTVCGallery(-1)">
                             &#8249;
                         </button>
-                        <button class="gallery-nav-btn right" onclick="event.stopPropagation(); navigateGallery(1)">
+                        <button class="gallery-nav-btn right" onclick="event.stopPropagation(); navigateTVCGallery(1)">
                             &#8250;
                         </button>
-                        <div class="gallery-counter" id="gallery-counter">
-                            1 / ${totalGalleryImages}
+                        <div class="gallery-counter" id="tvc-gallery-counter">1 / ${tvcGalleryImages.length}</div>
+                    </div>
+                </div>
+
+                <!-- Design & Planning Section -->
+                <div class="project-section">
+                    <h3 class="section-title">Design & Planning</h3>
+                    
+                    <!-- 3D CAD Viewer -->
+                    <div class="cad-viewer-container" style="position: relative; width: 100%; height: 500px; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); border-radius: 12px; overflow: hidden; border: 1px solid rgba(117, 121, 255, 0.3); margin-bottom: 20px;">
+                        <div id="cad-viewer" style="width: 100%; height: 100%;"></div>
+                        
+                        <!-- CAD Viewer Controls Overlay -->
+                        <div style="position: absolute; bottom: 15px; left: 15px; background: rgba(0,0,0,0.7); padding: 10px 15px; border-radius: 8px; font-size: 12px; color: #9ca3af;">
+                            <span style="color: #7579ff; font-weight: 600;">Controls:</span> 
+                            Left-click + drag to rotate | Scroll to zoom | Right-click + drag to pan
+                        </div>
+                        
+                        <!-- Placeholder message (shown until CAD loads) -->
+                        <div id="cad-placeholder" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: #6b7280;">
+                            <div style="font-size: 48px; margin-bottom: 10px;">🚀</div>
+                            <p style="font-size: 16px; font-weight: 600;">3D CAD Model Viewer</p>
+                            <p style="font-size: 14px; color: #4b5563;">Place your .STEP or .STL file in the models folder</p>
+                            <p style="font-size: 12px; color: #374151; margin-top: 10px;">Path: models/tvc-rocket.stl</p>
                         </div>
                     </div>
-                    <div class="gallery-description">
-                        <h4 class="text-xl font-bold text-brand-accent mb-2">Step 3: Testing & Results Gallery</h4>
-                        <p class="text-gray-300" id="gallery-description">
-                            This gallery showcases the final testing phase, thermal imaging results,
-                            performance benchmarks, and the completed battery system in various configurations.
-                            Use the left and right arrows to browse through all test results and final photos.
-                        </p>
+                    
+                    <div class="section-content">
+                        <p>[Describe your design process here. Talk about CAD modeling, calculations, design decisions, etc.]</p>
+                    </div>
+                </div>
+
+                <!-- Thrust Vector Control System Section -->
+                <div class="project-section">
+                    <h3 class="section-title">Thrust Vector Control System</h3>
+                    <div class="image-placeholder">
+                        [TVC Gimbal/Mount Image Placeholder]
+                    </div>
+                    <div class="section-content">
+                        <p>[Explain the TVC system here. Discuss the gimbal design, servo motors, mounting mechanism, etc.]</p>
+                    </div>
+                </div>
+
+                <!-- Electronics & Flight Computer Section -->
+                <div class="project-section">
+                    <h3 class="section-title">Electronics & Flight Computer</h3>
+                    <div class="image-grid">
+                        <div class="image-placeholder">[Flight Computer Image]</div>
+                        <div class="image-placeholder">[Wiring/PCB Image]</div>
+                    </div>
+                    <div class="section-content">
+                        <p>[Describe the electronics here. Talk about the ESP32/microcontroller, IMU sensors, sensor fusion algorithms, PID control implementation, etc.]</p>
+                    </div>
+                </div>
+
+                <!-- Software & Algorithms Section -->
+                <div class="project-section">
+                    <h3 class="section-title">Software & Control Algorithms</h3>
+                    <div class="image-placeholder">
+                        [Code Screenshot or Algorithm Diagram]
+                    </div>
+                    <div class="section-content">
+                        <p>[Explain your software approach here. Discuss PID tuning, quaternion-based orientation, Kalman filtering, real-time processing, etc.]</p>
+                    </div>
+                </div>
+
+                <!-- Testing & Results Section -->
+                <div class="project-section">
+                    <h3 class="section-title">Testing & Results</h3>
+                    <div class="image-grid">
+                        <div class="image-placeholder">[Test Stand Image]</div>
+                        <div class="image-placeholder">[Data Graph/Results Image]</div>
+                        <div class="image-placeholder">[Launch/Flight Image]</div>
+                    </div>
+                    <div class="section-content">
+                        <p>[Share your testing process and results here. Include any data, graphs, flight videos, lessons learned, etc.]</p>
+                    </div>
+                </div>
+
+                <!-- Future Improvements Section -->
+                <div class="project-section">
+                    <h3 class="section-title">Future Improvements</h3>
+                    <div class="section-content">
+                        <p>[Discuss what you would do differently or what improvements you plan to make in future iterations.]</p>
                     </div>
                 </div>
             `;
-
-            // Reset gallery index
-            currentGalleryIndex = 0;
 
             // Set content and open modal
             document.getElementById('modal-title').textContent = title;
@@ -838,63 +932,419 @@
             document.getElementById('project-modal-overlay').classList.add('open');
             document.body.style.overflow = 'hidden';
 
-            // Update the gallery counter
-            updateGalleryDisplay();
+            // Initialize the 3D CAD viewer after modal is open
+            setTimeout(() => {
+                initCADViewer();
+            }, 100);
         }
 
         /**
-         * Navigate through the gallery images
-         * @param {number} direction - -1 for previous, 1 for next
+         * Initialize the Three.js 3D CAD Viewer
          */
-        function navigateGallery(direction) {
-            currentGalleryIndex += direction;
+        function initCADViewer() {
+            const container = document.getElementById('cad-viewer');
+            if (!container) return;
 
-            // Loop around if at the boundaries
-            if (currentGalleryIndex < 0) {
-                currentGalleryIndex = totalGalleryImages - 1;
-            } else if (currentGalleryIndex >= totalGalleryImages) {
-                currentGalleryIndex = 0;
+            // Scene setup
+            const scene = new THREE.Scene();
+            scene.background = new THREE.Color(0x1a1a2e);
+
+            // Camera setup
+            const camera = new THREE.PerspectiveCamera(
+                45,
+                container.clientWidth / container.clientHeight,
+                0.1,
+                1000
+            );
+            camera.position.set(100, 100, 100);
+
+            // Renderer setup
+            const renderer = new THREE.WebGLRenderer({ antialias: true });
+            renderer.setSize(container.clientWidth, container.clientHeight);
+            renderer.setPixelRatio(window.devicePixelRatio);
+            container.appendChild(renderer.domElement);
+
+            // Orbit Controls
+            const controls = new THREE.OrbitControls(camera, renderer.domElement);
+            controls.enableDamping = true;
+            controls.dampingFactor = 0.05;
+            controls.screenSpacePanning = false;
+            controls.minDistance = 10;
+            controls.maxDistance = 500;
+
+            // Lighting
+            const ambientLight = new THREE.AmbientLight(0x404040, 0.5);
+            scene.add(ambientLight);
+
+            const directionalLight1 = new THREE.DirectionalLight(0xffffff, 0.8);
+            directionalLight1.position.set(1, 1, 1);
+            scene.add(directionalLight1);
+
+            const directionalLight2 = new THREE.DirectionalLight(0x7579ff, 0.4);
+            directionalLight2.position.set(-1, -1, -1);
+            scene.add(directionalLight2);
+
+            // Grid helper
+            const gridHelper = new THREE.GridHelper(200, 20, 0x7579ff, 0x333355);
+            scene.add(gridHelper);
+
+            // Load STL file
+            const loader = new THREE.STLLoader();
+            loader.load(
+                'models/tvc-rocket.stl', // Path to your STL file
+                function (geometry) {
+                    // Hide placeholder
+                    const placeholder = document.getElementById('cad-placeholder');
+                    if (placeholder) placeholder.style.display = 'none';
+
+                    // Create material
+                    const material = new THREE.MeshPhongMaterial({
+                        color: 0x7579ff,
+                        specular: 0x111111,
+                        shininess: 50
+                    });
+
+                    // Create mesh
+                    const mesh = new THREE.Mesh(geometry, material);
+
+                    // Center the geometry
+                    geometry.computeBoundingBox();
+                    const center = geometry.boundingBox.getCenter(new THREE.Vector3());
+                    geometry.translate(-center.x, -center.y, -center.z);
+
+                    // Scale to fit view
+                    const size = geometry.boundingBox.getSize(new THREE.Vector3());
+                    const maxDim = Math.max(size.x, size.y, size.z);
+                    const scale = 80 / maxDim;
+                    mesh.scale.set(scale, scale, scale);
+
+                    scene.add(mesh);
+
+                    // Adjust camera to fit object
+                    camera.position.set(100, 80, 100);
+                    controls.update();
+                },
+                function (xhr) {
+                    // Progress callback
+                    console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+                },
+                function (error) {
+                    // Error callback - keep placeholder visible
+                    console.log('STL file not found or error loading. Placeholder will remain visible.');
+                }
+            );
+
+            // Animation loop
+            function animate() {
+                requestAnimationFrame(animate);
+                controls.update();
+                renderer.render(scene, camera);
             }
+            animate();
 
-            updateGalleryDisplay();
+            // Handle window resize
+            window.addEventListener('resize', () => {
+                if (container.clientWidth > 0 && container.clientHeight > 0) {
+                    camera.aspect = container.clientWidth / container.clientHeight;
+                    camera.updateProjectionMatrix();
+                    renderer.setSize(container.clientWidth, container.clientHeight);
+                }
+            });
         }
 
         /**
-         * Update the gallery display with current index
+         * Battery pack gallery state
          */
-        function updateGalleryDisplay() {
-            const galleryImage = document.getElementById('gallery-main-image');
-            const galleryCounter = document.getElementById('gallery-counter');
-            const galleryDescription = document.getElementById('gallery-description');
+        let batteryGalleryIndex = 0;
+        const batteryGalleryImages = [
+            { src: 'images/battery/battery-1.jpg', alt: 'Battery Pack Image 1' },
+            { src: 'images/battery/battery-2.jpg', alt: 'Battery Pack Image 2' },
+            { src: 'images/battery/battery-3.jpg', alt: 'Battery Pack Image 3' },
+            { src: 'images/battery/battery-4.jpg', alt: 'Battery Pack Image 4' },
+            { src: 'images/battery/battery-5.jpg', alt: 'Battery Pack Image 5' },
+            { src: 'images/battery/battery-6.jpg', alt: 'Battery Pack Image 6' }
+        ];
 
-            // Update counter
-            if (galleryCounter) {
-                galleryCounter.textContent = `${currentGalleryIndex + 1} / ${totalGalleryImages}`;
-            }
+        function navigateBatteryGallery(direction) {
+            batteryGalleryIndex += direction;
+            if (batteryGalleryIndex < 0) batteryGalleryIndex = batteryGalleryImages.length - 1;
+            if (batteryGalleryIndex >= batteryGalleryImages.length) batteryGalleryIndex = 0;
+            updateBatteryGallery();
+        }
 
-            // Update image placeholder text
-            if (galleryImage) {
-                const imageLabels = [
-                    'Testing Setup View',
-                    'Thermal Performance Results',
-                    'BMS Integration Details',
-                    'Final Assembly Front View',
-                    'Final Assembly Side View'
-                ];
-                galleryImage.textContent = `Gallery Image ${currentGalleryIndex + 1}: ${imageLabels[currentGalleryIndex]}`;
+        function updateBatteryGallery() {
+            const img = document.getElementById('battery-gallery-img');
+            const counter = document.getElementById('battery-gallery-counter');
+            
+            if (img) {
+                img.src = batteryGalleryImages[batteryGalleryIndex].src;
+                img.alt = batteryGalleryImages[batteryGalleryIndex].alt;
+                img.onerror = function() {
+                    this.onerror = null;
+                    this.src = `https://placehold.co/800x500/1e293b/ffffff?text=Battery+Image+${batteryGalleryIndex + 1}`;
+                };
             }
+            if (counter) {
+                counter.textContent = `${batteryGalleryIndex + 1} / ${batteryGalleryImages.length}`;
+            }
+        }
 
-            // Update description based on current image
-            if (galleryDescription) {
-                const descriptions = [
-                    'Testing setup showing the battery pack connected to load testing equipment and monitoring systems to verify performance under various conditions.',
-                    'Thermal imaging results demonstrating even heat distribution across the battery pack during high-load scenarios, validating the thermal management design.',
-                    'Detailed view of the Battery Management System (BMS) integration, showing the connection points and protection circuitry.',
-                    'Front view of the completed battery system, showcasing the professional assembly and protective casing.',
-                    'Side profile of the battery pack highlighting the modular design and accessible connection points for maintenance.'
-                ];
-                galleryDescription.textContent = descriptions[currentGalleryIndex];
-            }
+        /**
+         * Opens the battery project detail with gallery functionality
+         */
+        function openBatteryProjectDetail() {
+            batteryGalleryIndex = 0; // Reset gallery index
+            const title = 'Custom Li-ion Battery System (72V/49A)';
+            const bodyHtml = `
+                <!-- Project Overview Section -->
+                <div class="project-section" style="padding-top: 20px;">
+                    <h3 class="section-title" style="margin-bottom: 20px;">Project Overview</h3>
+                    
+                    <div class="section-content" style="margin-bottom: 25px;">
+                        <p style="margin-bottom: 15px;">For my electric go kart, I needed a compact, high-power battery pack capable of delivering sustained current with minimal voltage sag under load. I designed and built a custom 72V lithium-ion battery pack using Samsung INR21700-N50E (4900 mAh) cells arranged in a 20S10P configuration, providing both high voltage and ample current headroom.</p>
+                        <p>While lithium-ion cells are quite expensive, I was fortunate enough to connect with a failed EV startup in California and acquire these battery cells at a greatly discounted price.</p>
+                    </div>
+                    
+                    <!-- Static Hero Image -->
+                    <div>
+                        <img src="images/battery/battery-hero.jpg" 
+                             alt="Battery Pack Hero Image" 
+                             class="w-full h-[400px] object-cover rounded-lg"
+                             onerror="this.onerror=null; this.src='https://placehold.co/800x500/1e293b/ffffff?text=Battery+Pack+Hero+Image';">
+                    </div>
+                </div>
+
+                <!-- Architecture & Design Section -->
+                <div class="project-section">
+                    <h3 class="section-title" style="margin-bottom: 20px;">Architecture & Design</h3>
+                    
+                    <div class="section-content" style="margin-bottom: 25px;">
+                        <p>The pack voltage was chosen to match the go-kart's motor and controller, which led to a 20-cell series layout (20 × 3.6 V ≈ 72 V nominal). To support up to 49 A of sustained current while also providing plenty of usable runtime, I used 10 cells in parallel, resulting in 49 Ah of capacity and keeping per-cell current low to reduce heat and voltage sag during hard acceleration.</p>
+                    </div>
+                    
+                    <!-- Architecture Sketch -->
+                    <div style="margin-bottom: 20px;">
+                        <p class="text-sm text-gray-400 mb-2 font-medium">Battery Architecture Sketch</p>
+                        <div style="width: 100%; height: 350px; background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center; border: 2px dashed #4a5568; overflow: hidden;">
+                            <img src="images/battery/architecture-sketch.jpg" 
+                                 alt="Battery Architecture Sketch" 
+                                 class="w-full h-full object-contain"
+                                 onerror="this.style.display='none'; this.parentElement.innerHTML='[Architecture Sketch Placeholder]';">
+                        </div>
+                    </div>
+                    
+                    <div class="section-content">
+                        <p>[Add any additional notes about your architecture decisions, cell selection process, or design iterations here.]</p>
+                    </div>
+                </div>
+
+                <!-- Battery Management System Section -->
+                <div class="project-section">
+                    <h3 class="section-title" style="margin-bottom: 20px;">Battery Management System (BMS)</h3>
+                    
+                    <div class="section-content" style="margin-bottom: 25px;">
+                        <p style="margin-bottom: 15px;">In series-connected battery packs, small differences between cell groups can grow over repeated charge and discharge cycles, leading to large voltage imbalances across the pack. In high-power systems, these imbalances can cause individual cell groups to be overcharged or overdischarged, increasing the risk of overheating, venting, and, in extreme cases, explosions.</p>
+                        <p style="margin-bottom: 15px;">To mitigate these risks, I integrated a BMS that monitors each series group, balances voltages, and provides overcurrent as well as over- and under-voltage protection during charging and operation. Unfortunately at the time of building this battery pack, I had not yet learned PCB design, so I selected a commercially available BMS rather than designing a custom one.</p>
+                        <p><a href="https://www.amazon.com/dp/B0CC2NHFB8?ref_=ppx_hzsearch_conn_dt_b_fed_asin_title_24" target="_blank" rel="noopener noreferrer" class="text-brand-accent hover:text-white transition-colors duration-200 underline">View the BMS I used →</a></p>
+                    </div>
+                    
+                    <div class="image-grid">
+                        <div class="image-placeholder">[BMS Image 1]</div>
+                        <div class="image-placeholder">[BMS Image 2]</div>
+                    </div>
+                </div>
+
+                <!-- Technical Specifications Section -->
+                <div class="project-section">
+                    <h3 class="section-title" style="margin-bottom: 20px;">Technical Specifications</h3>
+                    
+                    <div style="background: rgba(76, 81, 191, 0.1); border-radius: 12px; padding: 25px;">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="flex justify-between border-b border-white/10 pb-3">
+                                <span class="text-gray-400">Nominal Voltage</span>
+                                <span class="text-white font-semibold">72 V (84 V max)</span>
+                            </div>
+                            <div class="flex justify-between border-b border-white/10 pb-3">
+                                <span class="text-gray-400">Max Continuous Current</span>
+                                <span class="text-white font-semibold">49 A</span>
+                            </div>
+                            <div class="flex justify-between border-b border-white/10 pb-3">
+                                <span class="text-gray-400">Cell Type</span>
+                                <span class="text-white font-semibold">Samsung INR21700-N50E</span>
+                            </div>
+                            <div class="flex justify-between border-b border-white/10 pb-3">
+                                <span class="text-gray-400">Configuration</span>
+                                <span class="text-white font-semibold">20S10P</span>
+                            </div>
+                            <div class="flex justify-between border-b border-white/10 pb-3">
+                                <span class="text-gray-400">Cell Capacity</span>
+                                <span class="text-white font-semibold">4900 mAh</span>
+                            </div>
+                            <div class="flex justify-between border-b border-white/10 pb-3">
+                                <span class="text-gray-400">Protection</span>
+                                <span class="text-white font-semibold">Integrated BMS</span>
+                            </div>
+                            <div class="flex justify-between border-b border-white/10 pb-3">
+                                <span class="text-gray-400">Total Cells</span>
+                                <span class="text-white font-semibold">200 cells</span>
+                            </div>
+                            <div class="flex justify-between border-b border-white/10 pb-3">
+                                <span class="text-gray-400">Pack Capacity</span>
+                                <span class="text-white font-semibold">49 Ah</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Assembly Process Section -->
+                <div class="project-section">
+                    <h3 class="section-title" style="margin-bottom: 20px;">Assembly Process</h3>
+                    
+                    <!-- Step 1: Cell Insulation -->
+                    <div style="margin-bottom: 30px;">
+                        <h4 class="text-lg font-semibold text-white mb-3">1. Cell Insulation & Short Protection</h4>
+                        <div class="image-placeholder" style="height: 250px;">[Cell Insulation Image]</div>
+                    </div>
+                    
+                    <!-- Step 2: Cell Layout -->
+                    <div style="margin-bottom: 30px;">
+                        <h4 class="text-lg font-semibold text-white mb-3">2. Cell Layout & Bracketing</h4>
+                        <div class="image-placeholder" style="height: 250px;">[Cell Layout Image]</div>
+                    </div>
+                    
+                    <!-- Step 3: Spot Welding -->
+                    <div style="margin-bottom: 30px;">
+                        <h4 class="text-lg font-semibold text-white mb-3">3. Spot Welding & Electrical Interconnects</h4>
+                        <div class="image-placeholder" style="height: 250px;">[Spot Welding Image]</div>
+                    </div>
+                    
+                    <!-- Step 4: BMS Installation -->
+                    <div style="margin-bottom: 30px;">
+                        <h4 class="text-lg font-semibold text-white mb-3">4. BMS Installation</h4>
+                        <div class="image-placeholder" style="height: 250px;">[BMS Installation Image]</div>
+                    </div>
+                    
+                    <!-- Step 5: Final Wrapping -->
+                    <div style="margin-bottom: 10px;">
+                        <h4 class="text-lg font-semibold text-white mb-3">5. Final Insulation & Pack Wrapping</h4>
+                        <div class="image-placeholder" style="height: 250px;">[Final Pack Image]</div>
+                    </div>
+                </div>
+
+                <!-- Photo Gallery Section -->
+                <div class="project-section">
+                    <h3 class="section-title" style="margin-bottom: 20px;">Photo Gallery</h3>
+                    
+                    <!-- Image Gallery with Navigation -->
+                    <div class="gallery-container" style="margin-bottom: 20px;">
+                        <img id="battery-gallery-img" 
+                             class="w-full h-[400px] object-cover rounded-lg" 
+                             src="${batteryGalleryImages[0].src}" 
+                             alt="${batteryGalleryImages[0].alt}"
+                             onerror="this.onerror=null; this.src='https://placehold.co/800x500/1e293b/ffffff?text=Battery+Image+1';">
+                        
+                        <button class="gallery-nav-btn left" onclick="event.stopPropagation(); navigateBatteryGallery(-1)">
+                            &#8249;
+                        </button>
+                        <button class="gallery-nav-btn right" onclick="event.stopPropagation(); navigateBatteryGallery(1)">
+                            &#8250;
+                        </button>
+                        <div class="gallery-counter" id="battery-gallery-counter">1 / ${batteryGalleryImages.length}</div>
+                    </div>
+                </div>
+            `;
+
+            // Set content and open modal
+            document.getElementById('modal-title').textContent = title;
+            document.getElementById('modal-body').innerHTML = bodyHtml;
+            document.getElementById('project-modal-overlay').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        /**
+         * Opens the Electric Go-Kart project detail
+         */
+        function openGokartDetail() {
+            const title = 'Electric Go-Kart';
+            const bodyHtml = `
+                <!-- Project Overview Section -->
+                <div class="project-section" style="padding-top: 20px;">
+                    <h3 class="section-title" style="margin-bottom: 20px;">Project Overview</h3>
+                    
+                    <div class="section-content">
+                        <p>[Write your project overview here. Describe the go-kart project, your goals, and what you set out to accomplish with this build.]</p>
+                    </div>
+                </div>
+
+                <!-- Before: Original Condition Section -->
+                <div class="project-section">
+                    <h3 class="section-title" style="margin-bottom: 20px;">Before: Original Condition</h3>
+                    
+                    <div class="image-grid">
+                        <div class="image-placeholder" style="height: 280px;">[Before Image 1]</div>
+                        <div class="image-placeholder" style="height: 280px;">[Before Image 2]</div>
+                    </div>
+                </div>
+
+                <!-- Modifications & Changes Section -->
+                <div class="project-section">
+                    <h3 class="section-title" style="margin-bottom: 20px;">Modifications & Changes</h3>
+                    
+                    <div class="section-content">
+                        <p>[Describe the modifications you made here. Talk about the complete repaint, electrical upgrades, motor installation, controller setup, and any other changes you made to transform the go-kart.]</p>
+                    </div>
+                </div>
+
+                <!-- Technical Specifications Section -->
+                <div class="project-section">
+                    <h3 class="section-title" style="margin-bottom: 20px;">Technical Specifications</h3>
+                    
+                    <div style="background: rgba(76, 81, 191, 0.1); border-radius: 12px; padding: 25px;">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="flex justify-between border-b border-white/10 pb-3">
+                                <span class="text-gray-400">Motor Type</span>
+                                <span class="text-white font-semibold">[Motor Model]</span>
+                            </div>
+                            <div class="flex justify-between border-b border-white/10 pb-3">
+                                <span class="text-gray-400">Motor Power</span>
+                                <span class="text-white font-semibold">[Power Rating]</span>
+                            </div>
+                            <div class="flex justify-between border-b border-white/10 pb-3">
+                                <span class="text-gray-400">Motor Controller</span>
+                                <span class="text-white font-semibold">[Controller Model]</span>
+                            </div>
+                            <div class="flex justify-between border-b border-white/10 pb-3">
+                                <span class="text-gray-400">Battery Pack</span>
+                                <span class="text-white font-semibold">72V 49Ah (Custom 20S10P)</span>
+                            </div>
+                            <div class="flex justify-between border-b border-white/10 pb-3">
+                                <span class="text-gray-400">Top Speed</span>
+                                <span class="text-white font-semibold">[Top Speed]</span>
+                            </div>
+                            <div class="flex justify-between border-b border-white/10 pb-3">
+                                <span class="text-gray-400">Range</span>
+                                <span class="text-white font-semibold">[Estimated Range]</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- After: Completed Build Section -->
+                <div class="project-section">
+                    <h3 class="section-title" style="margin-bottom: 20px;">After: Completed Build</h3>
+                    
+                    <div class="image-grid">
+                        <div class="image-placeholder" style="height: 280px;">[After Image 1]</div>
+                        <div class="image-placeholder" style="height: 280px;">[After Image 2]</div>
+                    </div>
+                </div>
+            `;
+
+            // Set content and open modal
+            document.getElementById('modal-title').textContent = title;
+            document.getElementById('modal-body').innerHTML = bodyHtml;
+            document.getElementById('project-modal-overlay').classList.add('open');
+            document.body.style.overflow = 'hidden';
         }
     </script>
 </body>
