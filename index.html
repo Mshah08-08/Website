@@ -793,8 +793,8 @@
          */
         let tvcGalleryIndex = 0;
         const tvcGalleryImages = [
-            { src: 'images/TVC_Rocket_Full.jpg', alt: 'TVC Rocket Full View', caption: 'Full rocket assembly' },
-            { src: 'images/TVC_Rocket_Side1.jpg', alt: 'TVC Rocket Side View', caption: 'Side profile view' }
+            { src: 'images/TVC_Rocket_Full.jpg', alt: 'TVC Rocket Full View', caption: 'Full rocket assembly', objectFit: 'contain', objectPosition: 'center center' },
+            { src: 'images/TVC_Rocket_Side1.jpg', alt: 'TVC Rocket Side View', caption: 'Side profile view', objectFit: 'contain', objectPosition: 'center bottom' }
         ];
 
         function navigateTVCGallery(direction) {
@@ -811,6 +811,8 @@
             if (img) {
                 img.src = tvcGalleryImages[tvcGalleryIndex].src;
                 img.alt = tvcGalleryImages[tvcGalleryIndex].alt;
+                img.style.objectFit = tvcGalleryImages[tvcGalleryIndex].objectFit || 'contain';
+                img.style.objectPosition = tvcGalleryImages[tvcGalleryIndex].objectPosition || 'center center';
                 img.onerror = function() {
                     this.onerror = null;
                     this.src = `https://placehold.co/800x500/1e293b/ffffff?text=Image+${tvcGalleryIndex + 1}`;
@@ -838,9 +840,10 @@
                     
                     <!-- Image Gallery with Navigation -->
                     <div class="gallery-container" style="margin-bottom: 20px;">
-                        <img id="tvc-gallery-img" 
-                             class="w-full h-[400px] object-cover rounded-lg" 
-                             src="${tvcGalleryImages[0].src}" 
+                        <img id="tvc-gallery-img"
+                             class="w-full h-[400px] rounded-lg"
+                             style="object-fit: ${tvcGalleryImages[0].objectFit}; object-position: ${tvcGalleryImages[0].objectPosition};"
+                             src="${tvcGalleryImages[0].src}"
                              alt="${tvcGalleryImages[0].alt}"
                              onerror="this.onerror=null; this.src='https://placehold.co/800x500/1e293b/ffffff?text=Image+1';">
                         
@@ -1291,7 +1294,7 @@
                     <div>
                         <img src="images/Gokart_BeforeIteration.jpg"
                              alt="Go-Kart Before Conversion"
-                             class="w-full h-[280px] object-cover rounded-lg"
+                             class="w-full h-[280px] object-contain rounded-lg"
                              onerror="this.onerror=null; this.src='https://placehold.co/800x500/1e293b/ffffff?text=Go-Kart+Before';">
                     </div>
                 </div>
